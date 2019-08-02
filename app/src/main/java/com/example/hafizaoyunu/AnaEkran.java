@@ -8,10 +8,17 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import android.widget.Toast;
 
-public class AnaEkran extends AppCompatActivity {
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
+public class AnaEkran extends AppCompatActivity {
+private AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +26,9 @@ public class AnaEkran extends AppCompatActivity {
         Button button = findViewById(R.id.basla);
         final EditText isim = findViewById(R.id.isim);
 
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
