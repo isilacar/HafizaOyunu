@@ -55,8 +55,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="124dp"
-        ads:adSize="BANNER"
+        android:layout_marginTop="164dp"
+        ads:adSize="SMART_BANNER"
         ads:adUnitId="@string/banner_ad_unit_id"
         ads:layout_constraintStart_toStartOf="parent"
         ads:layout_constraintTop_toBottomOf="@+id/basla"></com.google.android.gms.ads.AdView>
