@@ -33,9 +33,7 @@ public class OyunEkrani extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.oyunekrani);
-        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.bensoundcreativeminds);
-        mediaPlayer.start();
-        mediaPlayer.setLooping(true);
+
 
         butonClick=MediaPlayer.create(this, R.raw.btnclick);
 

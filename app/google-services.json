@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1077075610493",
+    "firebase_url": "https://hafizaoyunu-9bec3.firebaseio.com",
+    "project_id": "hafizaoyunu-9bec3",
+    "storage_bucket": "hafizaoyunu-9bec3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077075610493:android:c502289832401e65",
+        "android_client_info": {
+          "package_name": "com.example.hafizaoyunu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1077075610493-l5jal05jj4o50k8pqs9ls668cvri2o3v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hafizaoyunu",
+            "certificate_hash": "c1255fbf8e9c067ce4b9096b41b8e48f411855de"
+          }
+        },
+        {
+          "client_id": "1077075610493-8q5eq1ed7hhflghjb9bclse55r7vgdam.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxRbWuS8IfXVMgvdEzC0mD7wQBGVzQk9E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1077075610493-8q5eq1ed7hhflghjb9bclse55r7vgdam.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -18,8 +18,8 @@ public class Kart extends Button {
     public Kart(Context context, int id) {
         super(context);
         setId(id);
-
-        arkaPlanID = R.drawable.back; //R java classımızın drawable klasöründe arka resmine
+       setCompoundDrawablePadding(5);
+        arkaPlanID = R.drawable.soru; //R java classımızın drawable klasöründe arka resmine
         // ulaşıyoruz
 
         if(id%8==1){
@@ -57,11 +57,11 @@ public class Kart extends Button {
 }
 public void cevir(){
         if(cevrilebilir){
-        if(!acikMi){//açıksa karta sayıları getir
+        if(!acikMi){//açıksa karta resimleri getir
             setBackground(on);
             acikMi=true;
         }
-        else{//kapalıysa karta resmi getir
+        else{//kapalıysa karta soru işareti getir
             setBackground(arka);
             acikMi=false;
         }
