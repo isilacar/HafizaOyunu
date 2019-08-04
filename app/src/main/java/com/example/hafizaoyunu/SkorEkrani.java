@@ -7,11 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 
 public class SkorEkrani extends AppCompatActivity {
 
 TextView hatat;
 Button button;
+private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +24,10 @@ Button button;
 
         hatat=findViewById( R.id.hata);
         button=findViewById(R.id.button);
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
         Intent i=getIntent();

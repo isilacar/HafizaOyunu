@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.GridLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 
 public class OyunEkrani extends AppCompatActivity {
     TextView tv;
@@ -18,6 +21,7 @@ public class OyunEkrani extends AppCompatActivity {
     int skor = 0;
     int hata = 0;
 
+    private AdView mAdView;
     MediaPlayer butonClick;
     Vibrator titre;
 
@@ -36,6 +40,10 @@ public class OyunEkrani extends AppCompatActivity {
         butonClick=MediaPlayer.create(this, R.raw.btnclick);
 
         titre= (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
 
