@@ -15,10 +15,10 @@ public class Kart extends Button {
     Drawable on;
 
 
+
     public Kart(Context context, int id) {
         super(context);
         setId(id);
-       setCompoundDrawablePadding(5);
         arkaPlanID = R.drawable.soru; //R java classımızın drawable klasöründe arka resmine
         // ulaşıyoruz
 

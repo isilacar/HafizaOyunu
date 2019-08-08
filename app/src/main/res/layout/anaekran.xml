@@ -30,6 +30,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="52dp"
         android:ems="10"
+        android:digits="@string/sayiYasak"
         android:hint="@string/isim"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"

@@ -19,6 +19,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="TextView"
+        android:textColor="#FFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.38"
@@ -49,6 +50,7 @@
         android:layout_marginLeft="28dp"
         android:layout_marginTop="44dp"
         android:text="SKOR : "
+        android:textColor="#FFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/kartlar" />
 
@@ -60,6 +62,7 @@
         android:layout_marginLeft="28dp"
         android:layout_marginTop="56dp"
         android:text="HATA : "
+        android:textColor="#FFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textSkor" />
 

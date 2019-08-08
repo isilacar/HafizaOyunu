@@ -29,6 +29,7 @@ public class AnaEkran extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.anaekran);
 
+
         mediaPlayer = MediaPlayer.create(this, R.raw.bensoundcreativeminds);
         mediaPlayer.start();
         mediaPlayer.setLooping(true);
