@@ -1,4 +1,4 @@
-package com.example.hafizaoyunu;
+package com.isila.hafizaoyunu;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -9,13 +9,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
-
-import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;

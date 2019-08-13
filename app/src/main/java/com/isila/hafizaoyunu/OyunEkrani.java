@@ -1,4 +1,4 @@
-package com.example.hafizaoyunu;
+package com.isila.hafizaoyunu;
 
 import android.content.Context;
 import android.content.Intent;
