@@ -66,5 +66,4 @@
         tools:layout_editor_absoluteX="112dp"></com.google.android.gms.ads.AdView>
 
 
-
 </android.support.constraint.ConstraintLayout>

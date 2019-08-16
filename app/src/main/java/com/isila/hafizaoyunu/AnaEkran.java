@@ -1,11 +1,13 @@
 package com.isila.hafizaoyunu;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +18,7 @@ import com.google.android.gms.ads.AdView;
 public class AnaEkran extends AppCompatActivity {
     private AdView mAdView;
     MediaPlayer mediaPlayer;
+    Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,13 +55,22 @@ public class AnaEkran extends AppCompatActivity {
                     //         Toast.LENGTH_LONG).show();
                 } else {
                     Intent intent = new Intent(AnaEkran.this, OyunEkrani.class);
-                    intent.putExtra("isim", isim.getText().toString());
+                    //  intent.putExtra("isim", isim.getText().toString());
+                    SharedPref sharedPref = new SharedPref();
+                    sharedPref.isimKaydet(context, isim.getText().toString());
+
                     startActivity(intent);
                 }
 
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        return true;
     }
 
 }

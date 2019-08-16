@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.Vibrator;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.TextView;
@@ -25,6 +25,7 @@ public class OyunEkrani extends AppCompatActivity {
     MediaPlayer butonClick;
     Vibrator titre;
 
+    Context context=this;
     public OyunEkrani() {
 
     }
@@ -45,8 +46,10 @@ public class OyunEkrani extends AppCompatActivity {
 
 
 
-        Intent i = getIntent();
-        final String s = i.getStringExtra("isim");
+//        Intent i = getIntent();
+ //       final String s = i.getStringExtra("isim");
+        SharedPref sharedPref = new SharedPref();
+        final String s = sharedPref.getValue(context);
         tv = findViewById(R.id.textView2);
         tv.setText("Merhaba " + s + ".Hafıza Oyununa Hoşgeldin..");
         GridLayout gl = findViewById(R.id.kartlar);
@@ -74,9 +77,9 @@ public class OyunEkrani extends AppCompatActivity {
                             k2.cevrilebilir = false;
                             skor++;
                             titre.vibrate(250);
-                            TextView tvSkor = findViewById(R.id.textSkor);
+                           // TextView tvSkor = findViewById(R.id.textSkor);
 
-                            tvSkor.setText("Skorunuz = " + skor);
+                     //       tvSkor.setText("Skorunuz = " + skor);
                             sonKart = 0;
 
                             if (skor == 8) {
