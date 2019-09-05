@@ -7,61 +7,119 @@
     android:layout_height="match_parent"
     tools:context=".AnaEkran">
 
-    <TextView
-        android:id="@+id/merhaba"
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:text="@string/merhaba"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.703"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.226" />
+        android:layout_marginTop="140dp"
+        android:gravity="center"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/isim"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="52dp"
-        android:ems="10"
-        android:digits="@string/sayiYasak"
-        android:hint="@string/isim"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/merhaba" />
+        <TableRow>
 
-    <Button
-        android:id="@+id/basla"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:background="@drawable/genel"
-        android:text="OYUNA BAŞLA"
-        android:elevation="50dp"
-        android:textColor="#fff"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/isim" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KULLANICI ADI" />
 
+            <EditText
+                android:id="@+id/etkullaniciadianaekran"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10">
+
+                <requestFocus />
+            </EditText>
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SİFRE" />
+
+            <EditText
+                android:id="@+id/etsifreanaekran"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberPassword" />
+        </TableRow>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <CheckBox
+                android:id="@+id/benihatirla"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Beni Hatırla" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/btngiris"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GİRİŞ YAP" />
+
+            <Button
+                android:id="@+id/btnkayit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KAYITOL" />
+        </LinearLayout>
+    </TableLayout>
+
+
+    <!--  <EditText
+          android:id="@+id/isim"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="8dp"
+          android:layout_marginLeft="8dp"
+          android:layout_marginTop="216dp"
+          android:digits="@string/sayiYasak"
+          android:ems="10"
+          android:hint="@string/isim"
+          android:inputType="textPersonName"
+          ads:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.478"
+          app:layout_constraintStart_toStartOf="parent" />
+
+      <Button
+          android:id="@+id/basla"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="48dp"
+          android:background="@drawable/genel"
+          android:text="OYUNA BAŞLA"
+          android:elevation="50dp"
+          android:textColor="#fff"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.498"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/isim" />
+  -->
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
-        ads:adSize="SMART_BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="4dp"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="112dp"></com.google.android.gms.ads.AdView>
 

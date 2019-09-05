@@ -2,75 +2,133 @@ package com.isila.hafizaoyunu;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SwitchCompat;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 public class AnaEkran extends AppCompatActivity {
     private AdView mAdView;
-    MediaPlayer mediaPlayer;
+    MediaPlayer butonClick2, player;
     Context context = this;
+    Button btngiris, btnkayit;
+    EditText etkullanici, etsifre;
+    CheckBox benihatirla;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //full ekran yapıyor
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.anaekran);
+        final SharedPref sharedPref = new SharedPref();
+        player = MediaPlayer.create(context, R.raw.bensoundcreativeminds);
+        player.start();
+        player.setLooping(true);
 
 
-        mediaPlayer = MediaPlayer.create(this, R.raw.bensoundcreativeminds);
-        mediaPlayer.start();
-        mediaPlayer.setLooping(true);
-
-        Button button = findViewById(R.id.basla);
-        final EditText isim = findViewById(R.id.isim);
+        butonClick2 = MediaPlayer.create(this, R.raw.btnclick);
 
 
+        etkullanici = findViewById(R.id.etkullaniciadianaekran);
+        etsifre = findViewById(R.id.etsifreanaekran);
+        btngiris = findViewById(R.id.btngiris);
+        btnkayit = findViewById(R.id.btnkayit);
+        benihatirla = findViewById(R.id.benihatirla);
+
+        if (sharedPref.getBooleanValue(context, "remember")) {
+            etkullanici.setText(sharedPref.getValue(context, "kullaniciadi"));
+            etsifre.setText(sharedPref.getValue(context, "sifre"));
+            benihatirla.setChecked(sharedPref.getBooleanValue(context, "remember"));
+        }
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-
-        button.setOnClickListener(new View.OnClickListener() {
+        btnkayit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                //burda isim yazmadan diğer ekana geçme dedik,ekrana bir alert dialog getiriyoruz
-                if (TextUtils.isEmpty(isim.getText())) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(AnaEkran.this);
-                    builder.setTitle("UYARI").setMessage("Lütfen isim alanını doldurunuz");
+            public void onClick(View view) {
+                Intent i = new Intent(AnaEkran.this, SignUp.class);
+                startActivity(i);
+            }
+        });
 
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
+        btngiris.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               /*eğer kullanıcı adı,veri tabanındakiyle eşleşiyorsa ve && şifrede eşleşiyorsa,
+                 oyun ekranına geç,startActivity(i) dedikten sonra  eğer beni hatırla işaretliyse
+                  aşağıdaki ilk if te ki gibi,kullanıcı adını ve şifreyi alıyoruz alıyoruz */
+                if (etkullanici.getText().toString().equals("isil") && etsifre.getText().toString().equals("1234")) {
+                    Intent i = new Intent(AnaEkran.this, OyunEkrani.class);
+                    startActivity(i);
 
-                    //yada sadece toast mesajıda yayınlayabiliriz..
-                    //   Toast.makeText(AnaEkran.this, "Lütfen isim alanını doldurunuz..",
-                    //         Toast.LENGTH_LONG).show();
+                    if (benihatirla.isChecked()) {
+                        sharedPref.saveString(context, "kullaniciadi", etkullanici.getText().toString());
+                        sharedPref.saveString(context, "sifre", etsifre.getText().toString());
+                    } else {
+                        sharedPref.saveString(context, "kullaniciadi", "");
+                        sharedPref.saveString(context, "sifre", "");
+                    }
+                    //benihatirla işaretlimi değilmi onu kontrol ediyorum
+                    sharedPref.saveBoolean(context, "remember", benihatirla.isChecked());
                 } else {
-                    Intent intent = new Intent(AnaEkran.this, OyunEkrani.class);
-                    //  intent.putExtra("isim", isim.getText().toString());
-                    SharedPref sharedPref = new SharedPref();
-                    sharedPref.isimKaydet(context, isim.getText().toString());
-
-                    startActivity(intent);
+                    Toast.makeText(context, "Kullanıcı adı yada şifre yanlış", Toast.LENGTH_SHORT).show();
                 }
 
             }
         });
 
+
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setTitle("ÇIKIŞ");
+            builder.setMessage("Çıkmak istediğinize eminmisiniz?");
+            builder.setPositiveButton("EVET", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Intent intent = new Intent(Intent.ACTION_MAIN);
+                    intent.addCategory(Intent.CATEGORY_HOME);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
 
-        return true;
+                    int pid = android.os.Process.myPid();
+                    android.os.Process.killProcess(pid);
+                }
+            });
+            builder.setNegativeButton("HAYIR", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.cancel();
+                }
+            });
+            builder.create().show();
+
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
+
 
 }

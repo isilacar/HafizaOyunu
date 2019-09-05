@@ -8,6 +8,7 @@
     android:layout_gravity="center"
     tools:context=".SkorEkrani">
 
+
     <TextView
         android:id="@+id/hata"
         android:layout_width="fill_parent"
