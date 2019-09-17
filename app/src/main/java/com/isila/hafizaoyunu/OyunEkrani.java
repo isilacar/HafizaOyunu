@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Vibrator;
 import android.os.Bundle;
@@ -24,7 +25,7 @@ import com.google.android.gms.ads.AdView;
 
 
 public class OyunEkrani extends AppCompatActivity {
-    TextView tv;
+    TextView tv,tvkalansure;
     int sonKart = 0;
     int skor = 0;
     int hata = 0;
@@ -32,6 +33,7 @@ public class OyunEkrani extends AppCompatActivity {
     private AdView mAdView;
     MediaPlayer butonClick;
     Vibrator titre;
+    CountDownTimer timer;
 
 
     Context context=this;
@@ -45,26 +47,39 @@ public class OyunEkrani extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.oyunekrani);
 
-
-
-
+        tvkalansure=findViewById(R.id.kalansure);
         butonClick=MediaPlayer.create(this, R.raw.btnclick);
 
         titre= (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-
-        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-
-
-
-//        Intent i = getIntent();
- //       final String s = i.getStringExtra("isim");
         SharedPref sharedPref = new SharedPref();
         final String s = sharedPref.getValue(context,"kullaniciadi");
         tv = findViewById(R.id.textView2);
         tv.setText("Merhaba " + s + ".Hafıza Oyununa Hoşgeldin..");
         GridLayout gl = findViewById(R.id.kartlar);
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        timer=new CountDownTimer(25000,1000) {
+            @Override
+            public void onTick(long l) {
+
+                tvkalansure.setText("Kalan Süre = " +l/1000);
+            }
+
+            @Override
+            public void onFinish() {
+                Intent i2 = new Intent(OyunEkrani.this, SureBitti.class);
+           //     Toast.makeText(context, "SÜRE BİTTİ", Toast.LENGTH_SHORT).show();
+                startActivity(i2);
+            }
+        }.start();
+
+
+
+//        Intent i = getIntent();
+ //       final String s = i.getStringExtra("isim");
+
 
 
         //kartların içeriklerini bir arraya atıyoruz.
@@ -85,6 +100,8 @@ public class OyunEkrani extends AppCompatActivity {
 
                         final Kart k2 = findViewById(sonKart);
                         if (k2.onID == k.onID && k2.getId() != k.getId()) {
+                            k.setClickable(false);
+                            k2.setClickable(false);
                             k.cevrilebilir = false;
                             k2.cevrilebilir = false;
                             skor++;
@@ -96,6 +113,7 @@ public class OyunEkrani extends AppCompatActivity {
 
                             if (skor == 8) {
                                 //oyun bitti
+                                timer.cancel();
                                 Intent i2 = new Intent(OyunEkrani.this, SkorEkrani.class);
                                 i2.putExtra("hatalar", hata);
                                 i2.putExtra("isim", s);
