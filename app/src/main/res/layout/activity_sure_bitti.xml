@@ -16,7 +16,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="92dp"
-        android:text="SÜRENİZ BİTTİ.OYUNU TAMAMLAYAMADINIZ"
         android:textColor="#E61F1F"
         android:textSize="18sp"
         android:textStyle="bold|italic"

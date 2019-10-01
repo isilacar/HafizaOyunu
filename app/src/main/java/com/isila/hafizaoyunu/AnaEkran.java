@@ -28,9 +28,9 @@ public class AnaEkran extends AppCompatActivity {
     private AdView mAdView;
     MediaPlayer butonClick2, player;
     Context context = this;
-    Button btngiris, btnkayit;
-    EditText etkullanici, etsifre;
-    CheckBox benihatirla;
+    Button btngiris;
+    EditText etkullanici;
+   // CheckBox benihatirla;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,51 +47,62 @@ public class AnaEkran extends AppCompatActivity {
         butonClick2 = MediaPlayer.create(this, R.raw.btnclick);
 
 
-        etkullanici = findViewById(R.id.etkullaniciadianaekran);
-        etsifre = findViewById(R.id.etsifreanaekran);
+        etkullanici = findViewById(R.id.isim);
+        etkullanici.setText(sharedPref.getValue(context, "kullaniciadi"));
+     //   etsifre = findViewById(R.id.etsifreanaekran);
         btngiris = findViewById(R.id.btngiris);
-        btnkayit = findViewById(R.id.btnkayit);
-        benihatirla = findViewById(R.id.benihatirla);
+     //   btnkayit = findViewById(R.id.btnkayit);
+      //  benihatirla = findViewById(R.id.benihatirla);
 
-        if (sharedPref.getBooleanValue(context, "remember")) {
+        /*if (sharedPref.getBooleanValue(context, "remember")) {
             etkullanici.setText(sharedPref.getValue(context, "kullaniciadi"));
             etsifre.setText(sharedPref.getValue(context, "sifre"));
             benihatirla.setChecked(sharedPref.getBooleanValue(context, "remember"));
-        }
+        }*/
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        btnkayit.setOnClickListener(new View.OnClickListener() {
+      /*  btnkayit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(AnaEkran.this, SignUp.class);
                 startActivity(i);
             }
-        });
+        });*/
 
         btngiris.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if(TextUtils.isEmpty(etkullanici.getText().toString())){
+                    Toast.makeText(context, "İsim alanı boş bırakılamaz..", Toast.LENGTH_SHORT).show();
+                } else {
+                    sharedPref.saveString(context, "kullaniciadi", etkullanici.getText().toString());
+                    Intent i = new Intent(AnaEkran.this, OyunEkrani.class);
+                    startActivity(i);
+                    Toast.makeText(context, "Merhaba " + etkullanici.getText().toString()+".Haf" +
+                                    "ıza Oyununa Hoşgeldin..",
+                            Toast.LENGTH_LONG).show();
+                    //sharedPref.saveString(context, "kullaniciadi", "");
+                }
                /*eğer kullanıcı adı,veri tabanındakiyle eşleşiyorsa ve && şifrede eşleşiyorsa,
                  oyun ekranına geç,startActivity(i) dedikten sonra  eğer beni hatırla işaretliyse
                   aşağıdaki ilk if te ki gibi,kullanıcı adını ve şifreyi alıyoruz alıyoruz */
-                if (etkullanici.getText().toString().equals("isil") && etsifre.getText().toString().equals("1234")) {
-                    Intent i = new Intent(AnaEkran.this, OyunEkrani.class);
-                    startActivity(i);
+               /* if (etkullanici.getText().toString().equals("isil") && etsifre.getText().toString().equals("1234")) {
+
 
                     if (benihatirla.isChecked()) {
-                        sharedPref.saveString(context, "kullaniciadi", etkullanici.getText().toString());
+
                         sharedPref.saveString(context, "sifre", etsifre.getText().toString());
                     } else {
-                        sharedPref.saveString(context, "kullaniciadi", "");
+
                         sharedPref.saveString(context, "sifre", "");
                     }
-                    //benihatirla işaretlimi değilmi onu kontrol ediyorum
+                    benihatirla işaretlimi değilmi onu kontrol ediyorum
                     sharedPref.saveBoolean(context, "remember", benihatirla.isChecked());
-                } else {
-                    Toast.makeText(context, "Kullanıcı adı yada şifre yanlış", Toast.LENGTH_SHORT).show();
-                }
+                } */
+
 
             }
         });

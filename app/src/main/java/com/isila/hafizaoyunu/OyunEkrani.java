@@ -53,8 +53,9 @@ public class OyunEkrani extends AppCompatActivity {
         titre= (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         SharedPref sharedPref = new SharedPref();
         final String s = sharedPref.getValue(context,"kullaniciadi");
-        tv = findViewById(R.id.textView2);
-        tv.setText("Merhaba " + s + ".Hafıza Oyununa Hoşgeldin..");
+   //     tv = findViewById(R.id.textView2);
+     //   tv.setText("");
+     //   tv.setText("Merhaba " + s + ".Hafıza Oyununa Hoşgeldin..");
         GridLayout gl = findViewById(R.id.kartlar);
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();

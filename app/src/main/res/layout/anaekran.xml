@@ -5,79 +5,88 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient"
     tools:context=".AnaEkran">
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
-        android:gravity="center"
+    <EditText
+        android:id="@+id/isim"
+        android:layout_width="304dp"
+        android:layout_height="49dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="220dp"
+        android:background="#03A9F4"
+        android:drawableLeft="@drawable/user"
+        android:ems="10"
+        android:hint=" Kullanıcı Adı"
+        android:textColor="#fff"
+        android:textColorHint="#fff"
+        android:textSize="16sp"
         ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintHorizontal_bias="0.495"
+        ads:layout_constraintStart_toStartOf="parent"
         ads:layout_constraintTop_toTopOf="parent">
 
-        <TableRow>
+        <requestFocus />
+    </EditText>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="KULLANICI ADI" />
+<!--
 
-            <EditText
-                android:id="@+id/etkullaniciadianaekran"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10">
+    <EditText
+        android:id="@+id/etsifreanaekran"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:textSize="16sp"
+        android:textColorHint="#fff"
+        android:background="#03A9F4"
+        android:hint=" Şifre"
+        android:drawableLeft="@drawable/sifre"
+        android:inputType="numberPassword"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/etkullaniciadianaekran" />
 
-                <requestFocus />
-            </EditText>
-        </TableRow>
 
-        <TableRow>
+    <CheckBox
+        android:id="@+id/benihatirla"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:buttonTint="#fff"
+        android:text="Beni Hatırla"
+        android:textColor="#fff"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintHorizontal_bias="0.264"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/etsifreanaekran" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SİFRE" />
 
-            <EditText
-                android:id="@+id/etsifreanaekran"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="numberPassword" />
-        </TableRow>
+    <Button
+        android:id="@+id/btnkayit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
+        android:text="KAYITOL"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/benihatirla" />
+-->
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+    <Button
+        android:id="@+id/btngiris"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="144dp"
+        android:layout_marginLeft="144dp"
+        android:layout_marginTop="76dp"
+        android:text="OYUNA BAŞLA"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/isim" />
 
-            <CheckBox
-                android:id="@+id/benihatirla"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Beni Hatırla" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:gravity="center_horizontal">
-
-            <Button
-                android:id="@+id/btngiris"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="GİRİŞ YAP" />
-
-            <Button
-                android:id="@+id/btnkayit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="KAYITOL" />
-        </LinearLayout>
-    </TableLayout>
 
 
     <!--  <EditText

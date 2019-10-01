@@ -19,7 +19,7 @@ import com.google.android.gms.ads.AdView;
 public class SureBitti extends AppCompatActivity {
     Context context = this;
     private AdView mAdView;
-
+TextView textViewsure;
     Button btntekraroyna;
     MediaPlayer butonclicksure;
 
@@ -28,7 +28,10 @@ public class SureBitti extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_sure_bitti);
-;
+        textViewsure=findViewById(R.id.surebitti);
+        SharedPref sharedPref=new SharedPref();
+        String isim=sharedPref.getValue(context, "kullaniciadi");
+        textViewsure.setText(isim.toUpperCase()+", SÜREN BİTTİ. OYUNU TAMAMLAYAMADIN..");
         btntekraroyna = findViewById(R.id.tekraroyna);
 
         butonclicksure = MediaPlayer.create(this, R.raw.btnclick);

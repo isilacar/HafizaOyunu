@@ -56,7 +56,7 @@ public class SkorEkrani extends AppCompatActivity {
         SharedPref sharedPref = new SharedPref();
         final String isim = sharedPref.getValue(context,"kullaniciadi");
 
-        hatat.setText(isim + ", " + hata + " hata ile oyunu bitirdin.Tebrikler..");
+        hatat.setText(isim.toUpperCase() + ", " + hata + " hata ile oyunu bitirdin.Tebrikler..");
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +86,7 @@ public class SkorEkrani extends AppCompatActivity {
 
                     int pid = android.os.Process.myPid();
                     android.os.Process.killProcess(pid);
+
                 }
             });
             builder.setNegativeButton("HAYIR", new DialogInterface.OnClickListener() {
