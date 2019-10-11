@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hafiza Oyunu</string>
+    <string name="app_name">Hafıza Oyunu</string>
     <string name="merhaba">Merhaba.Lütfen isminizi yazıp Başla butonuna tıklayınız..</string>
     <string name="uyari">LÜTFEN AŞAĞIDAKİ GEREKLİ ALANLARI DOLDURUN..</string>
     <string name="isim">Lütfen isminizi yazınız..</string>

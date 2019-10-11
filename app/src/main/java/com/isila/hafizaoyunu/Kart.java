@@ -35,13 +35,13 @@ public class Kart extends Button {
             onID=R.drawable.s4;
         }
         if(id%8==5){
-            onID=R.drawable.s5;
+            onID=R.drawable.s9;
         }
         if(id%8==6){
             onID=R.drawable.s6;
         }
         if(id%8==7){
-            onID=R.drawable.s7;
+            onID=R.drawable.s11;
         }
         if(id%8==0){
             onID=R.drawable.s8;
