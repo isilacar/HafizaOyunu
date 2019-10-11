@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/surebittigradient"
     tools:context=".SureBitti">
 
     <TextView
         android:id="@+id/surebitti"
         android:layout_width="match_parent"
-    android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="92dp"
-        android:textColor="#E61F1F"
-        android:textSize="18sp"
+        android:layout_marginTop="352dp"
+        android:gravity="center"
+        android:textColor="#673AB7"
+        android:textSize="20sp"
         android:textStyle="bold|italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,24 +28,36 @@
         android:layout_width="192dp"
         android:layout_height="58dp"
         android:layout_below="@+id/surebitti"
-        android:layout_marginStart="104dp"
-        android:layout_marginLeft="104dp"
-        android:layout_marginTop="136dp"
-        android:background="@drawable/genel"
+        android:layout_marginStart="108dp"
+        android:layout_marginLeft="108dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/tekraroyna"
+        android:textSize="20sp"
         android:text="TEKRAR OYNA"
-        android:textColor="#FFF"
+        android:textColor="#4527A0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/surebitti" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adViewsurebitti"
-        ads:adSize="SMART_BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="4dp"
+
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="112dp"></com.google.android.gms.ads.AdView>
+
+    <ImageView
+        android:id="@+id/lisa"
+        android:layout_width="273dp"
+        android:layout_height="305dp"
+        android:layout_marginTop="16dp"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintHorizontal_bias="0.652"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toTopOf="parent"
+        ads:srcCompat="@drawable/lisasimpson" />
 </android.support.constraint.ConstraintLayout>

@@ -56,7 +56,7 @@ public class SkorEkrani extends AppCompatActivity {
         SharedPref sharedPref = new SharedPref();
         final String isim = sharedPref.getValue(context,"kullaniciadi");
 
-        hatat.setText(isim.toUpperCase() + ", " + hata + " hata ile oyunu bitirdin.Tebrikler..");
+        hatat.setText(isim.toUpperCase() + ", " + hata + " HATA İLE OYUNU BİTİRDİN. TEBRİKLER..");
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

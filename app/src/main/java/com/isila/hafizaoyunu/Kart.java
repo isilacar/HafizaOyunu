@@ -19,32 +19,32 @@ public class Kart extends Button {
     public Kart(Context context, int id) {
         super(context);
         setId(id);
-        arkaPlanID = R.drawable.soru; //R java classımızın drawable klasöründe arka resmine
+        arkaPlanID = R.drawable.s0; //R java classımızın drawable klasöründe arka resmine
         // ulaşıyoruz
 
         if(id%8==1){
-            onID=R.drawable.p1;
+            onID=R.drawable.s1;
         }
         if(id%8==2){
-            onID=R.drawable.p2;
+            onID=R.drawable.s2;
         }
         if(id%8==3){
-            onID=R.drawable.p3;
+            onID=R.drawable.s3;
         }
         if(id%8==4){
-            onID=R.drawable.p4;
+            onID=R.drawable.s4;
         }
         if(id%8==5){
-            onID=R.drawable.p5;
+            onID=R.drawable.s5;
         }
         if(id%8==6){
-            onID=R.drawable.p6;
+            onID=R.drawable.s6;
         }
         if(id%8==7){
-            onID=R.drawable.p7;
+            onID=R.drawable.s7;
         }
         if(id%8==0){
-            onID=R.drawable.p8;
+            onID=R.drawable.s8;
         }
 
         arka = AppCompatDrawableManager.get().getDrawable(context, arkaPlanID);

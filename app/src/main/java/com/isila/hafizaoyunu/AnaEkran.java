@@ -11,14 +11,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
@@ -26,7 +30,7 @@ import com.google.android.gms.ads.AdView;
 
 public class AnaEkran extends AppCompatActivity {
     private AdView mAdView;
-    MediaPlayer butonClick2, player;
+    MediaPlayer butonClick2;
     Context context = this;
     Button btngiris;
     EditText etkullanici;
@@ -39,9 +43,9 @@ public class AnaEkran extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.anaekran);
         final SharedPref sharedPref = new SharedPref();
-        player = MediaPlayer.create(context, R.raw.bensoundcreativeminds);
+       /* player = MediaPlayer.create(context, R.raw.bensoundcreativeminds);
         player.start();
-        player.setLooping(true);
+        player.setLooping(true);*/
 
 
         butonClick2 = MediaPlayer.create(this, R.raw.btnclick);
@@ -81,9 +85,14 @@ public class AnaEkran extends AppCompatActivity {
                     sharedPref.saveString(context, "kullaniciadi", etkullanici.getText().toString());
                     Intent i = new Intent(AnaEkran.this, OyunEkrani.class);
                     startActivity(i);
-                    Toast.makeText(context, "Merhaba " + etkullanici.getText().toString()+".Haf" +
+
+                    toastGoster();
+
+                 /*   Toast.makeText(context, "Merhaba " + etkullanici.getText().toString()+".Haf" +
                                     "ıza Oyununa Hoşgeldin..",
-                            Toast.LENGTH_LONG).show();
+                            Toast.LENGTH_LONG).show();*/
+
+
                     //sharedPref.saveString(context, "kullaniciadi", "");
                 }
                /*eğer kullanıcı adı,veri tabanındakiyle eşleşiyorsa ve && şifrede eşleşiyorsa,
@@ -141,5 +150,20 @@ public class AnaEkran extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    public void toastGoster(){
+        LayoutInflater layoutInflater=getLayoutInflater();
+        View view=layoutInflater.inflate(R.layout.custom_toast,
+                (ViewGroup) findViewById(R.id.toast_root));
+        TextView toastt=view.findViewById(R.id.toasttext);
+        toastt.setText("Merhaba " + etkullanici.getText().toString()+".Haf" +
+                "ıza Oyununa Hoşgeldin..");
+        Toast toast=new Toast(context);
+
+        toast.setGravity(Gravity.TOP, 0, 0);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(view);
+        toast.show();
+
+    }
 
 }

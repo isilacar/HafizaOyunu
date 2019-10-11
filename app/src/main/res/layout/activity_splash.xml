@@ -1,17 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SplashActivity">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="163dp"
+
+        android:background="#344BE7"
+        android:gravity="center"
+        android:text="HAFIZANA GÜVENİYOR MUSUN?"
+        android:textColor="#fff"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:scaleType="center"
+        android:src="@drawable/hombrainnn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_below="@+id/img"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Hafıza Oyunu"
+        android:textColor="#C70A0A"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Eğlenirken Hafızanı Kuvvetlendir!"
+        android:textColor="#000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="By Işıl A."
+        android:gravity="center"
+        android:textColor="#7EA6BA"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:layout_editor_absoluteX="-3dp" />
+<!--
     <com.flaviofaria.kenburnsview.KenBurnsView
+        android:id="@+id/img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/img"
-        android:scaleType="centerCrop"
-        android:src="@drawable/papatya"/>
-
-
-</RelativeLayout>
+            android:scaleType="fitXY"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/brainn" />-->
+</android.support.constraint.ConstraintLayout>

@@ -5,13 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 
 import com.flaviofaria.kenburnsview.KenBurnsView;
 
 import java.util.Random;
 
 public class SplashActivity extends AppCompatActivity {
-KenBurnsView image;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,9 +20,7 @@ KenBurnsView image;
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
-        image=findViewById(R.id.img);
-
-       new SayfaGecisi().start();
+        new SayfaGecisi().start();
 
 
     }

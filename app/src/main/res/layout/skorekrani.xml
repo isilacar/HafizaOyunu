@@ -1,52 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
+    android:background="@drawable/skorekranigradient"
     tools:context=".SkorEkrani">
-
-
 
 
     <TextView
         android:id="@+id/hata"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="36dp"
         android:gravity="center"
-        android:textSize="24sp"
+        android:text="nhbgfdnfgdnfgngdfngdfngdf"
+        android:textColor="#4527A0"
+        android:textSize="20sp"
         android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintHorizontal_bias="0.0"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="192dp"
         android:layout_height="58dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="136dp"
-        android:background="@drawable/genel"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/tekraroyna"
         android:text="TEKRAR OYNA"
-        android:textColor="#FFF"
+        android:textColor="#7B1FA2"
+        android:textSize="20sp"
+        ads:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hata" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
-        ads:adSize="SMART_BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="4dp"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="112dp"></com.google.android.gms.ads.AdView>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toTopOf="parent"
+        ads:srcCompat="@drawable/mutlu" />
 
 </android.support.constraint.ConstraintLayout>
