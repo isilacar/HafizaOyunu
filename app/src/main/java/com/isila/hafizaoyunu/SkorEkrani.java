@@ -81,6 +81,7 @@ public class SkorEkrani extends AppCompatActivity {
                     @Override
                     public void onAdClosed() {
                         super.onAdClosed();
+                        interstitialAd.loadAd(adRequest2);
                         Intent i = new Intent(SkorEkrani.this, OyunEkrani.class);
                         startActivity(i);
                     }

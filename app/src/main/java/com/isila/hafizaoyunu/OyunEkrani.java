@@ -87,7 +87,7 @@ public class OyunEkrani extends AppCompatActivity {
                     @Override
                     public void onAdClosed() {
                         super.onAdClosed();
-
+                        interstitialAd.loadAd(adRequest2);
                         Intent i2 = new Intent(OyunEkrani.this, SureBitti.class);
                         startActivity(i2);
                     }
@@ -146,6 +146,7 @@ public class OyunEkrani extends AppCompatActivity {
                                     @Override
                                     public void onAdClosed() {
                                         super.onAdClosed();
+                                        interstitialAd.loadAd(adRequest2);
                                         startActivity(i2);
                                     }
                                 });

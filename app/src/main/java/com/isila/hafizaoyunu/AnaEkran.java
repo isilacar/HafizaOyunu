@@ -50,7 +50,7 @@ public class AnaEkran extends AppCompatActivity {
       //  MobileAds.initialize(context,tamEkranAd);
         final InterstitialAd interstitialAd=new InterstitialAd(context);
         interstitialAd.setAdUnitId(tamEkranAd);
-        AdRequest adRequest2 = new AdRequest.Builder()
+        final AdRequest adRequest2 = new AdRequest.Builder()
                 .addTestDevice("F8FCCB503AB1BF72B63CE923BD521B2A")
                 .build();
         interstitialAd.loadAd(adRequest2);
@@ -60,6 +60,11 @@ public class AnaEkran extends AppCompatActivity {
             public void onAdLoaded() {
                 super.onAdLoaded();
             interstitialAd.show();
+            }
+            @Override
+            public void onAdClosed() {
+                super.onAdClosed();
+                interstitialAd.loadAd(adRequest2);
             }
         });
 

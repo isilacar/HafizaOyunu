@@ -27,6 +27,7 @@ public class SureBitti extends AppCompatActivity {
 TextView textViewsure;
     Button btntekraroyna;
     MediaPlayer butonclicksure;
+    //test ad unit ID
     String tamEkranAd="ca-app-pub-3940256099942544/1033173712";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +68,7 @@ TextView textViewsure;
                     @Override
                     public void onAdClosed() {
                         super.onAdClosed();
+                        interstitialAd.loadAd(adRequest2);
                         Intent i = new Intent(SureBitti.this, OyunEkrani.class);
                         startActivity(i);
                     }
