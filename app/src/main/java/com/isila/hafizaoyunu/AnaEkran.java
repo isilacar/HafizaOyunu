@@ -50,7 +50,10 @@ public class AnaEkran extends AppCompatActivity {
       //  MobileAds.initialize(context,tamEkranAd);
         final InterstitialAd interstitialAd=new InterstitialAd(context);
         interstitialAd.setAdUnitId(tamEkranAd);
-        interstitialAd.loadAd(new AdRequest.Builder().build());
+        AdRequest adRequest2 = new AdRequest.Builder()
+                .addTestDevice("F8FCCB503AB1BF72B63CE923BD521B2A")
+                .build();
+        interstitialAd.loadAd(adRequest2);
 
         interstitialAd.setAdListener(new AdListener(){
             @Override

@@ -47,21 +47,22 @@ TextView textViewsure;
 
         final InterstitialAd interstitialAd=new InterstitialAd(context);
         interstitialAd.setAdUnitId(tamEkranAd);
-
+        final AdRequest adRequest2 = new AdRequest.Builder()
+                .addTestDevice("F8FCCB503AB1BF72B63CE923BD521B2A")
+                .build();
+        interstitialAd.loadAd(adRequest2);
+       // interstitialAd.loadAd(new AdRequest.Builder().build());
 
         btntekraroyna.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 butonclicksure.start();
 
-                interstitialAd.loadAd(new AdRequest.Builder().build());
+                if(interstitialAd.isLoaded()){
+                    interstitialAd.show();
+                }
 
                 interstitialAd.setAdListener(new AdListener(){
-                    @Override
-                    public void onAdLoaded() {
-                        super.onAdLoaded();
-                        interstitialAd.show();
-                    }
 
                     @Override
                     public void onAdClosed() {

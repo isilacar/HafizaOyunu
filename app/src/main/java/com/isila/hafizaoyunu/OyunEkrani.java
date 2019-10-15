@@ -27,18 +27,19 @@ import com.google.android.gms.ads.InterstitialAd;
 
 
 public class OyunEkrani extends AppCompatActivity {
-    TextView tv,tvkalansure;
+    TextView tv, tvkalansure;
     int sonKart = 0;
     int skor = 0;
     int hata = 0;
-    String tamEkranAd="ca-app-pub-3940256099942544/1033173712";
+    String tamEkranAd = "ca-app-pub-3940256099942544/1033173712";
     private AdView mAdView;
     MediaPlayer butonClick;
     Vibrator titre;
     CountDownTimer timer;
 
 
-    Context context=this;
+    Context context = this;
+
     public OyunEkrani() {
 
     }
@@ -48,42 +49,50 @@ public class OyunEkrani extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.oyunekrani);
-        final InterstitialAd interstitialAd=new InterstitialAd(context);
+        final InterstitialAd interstitialAd = new InterstitialAd(context);
         interstitialAd.setAdUnitId(tamEkranAd);
-        tvkalansure=findViewById(R.id.kalansure);
-        butonClick=MediaPlayer.create(this, R.raw.btnclick);
+        tvkalansure = findViewById(R.id.kalansure);
+        butonClick = MediaPlayer.create(this, R.raw.btnclick);
 
-        titre= (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        titre = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         SharedPref sharedPref = new SharedPref();
-        final String s = sharedPref.getValue(context,"kullaniciadi");
+        final String s = sharedPref.getValue(context, "kullaniciadi");
+
+        //tam ekran reklam
+        final AdRequest adRequest2 = new AdRequest.Builder()
+                .addTestDevice("F8FCCB503AB1BF72B63CE923BD521B2A")
+                .build();
+        interstitialAd.loadAd(adRequest2);
+        //   interstitialAd.loadAd(new AdRequest.Builder().build());
 
         GridLayout gl = findViewById(R.id.kartlar);
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        timer=new CountDownTimer(25000,1000) {
+        timer = new CountDownTimer(26000, 1000) {
             @Override
             public void onTick(long l) {
 
-                tvkalansure.setText("Kalan Süre = " +l/1000);
+                tvkalansure.setText("Kalan Süre = " + l / 1000);
             }
 
             @Override
             public void onFinish() {
 
-
-                interstitialAd.loadAd(new AdRequest.Builder().build());
-
-                interstitialAd.setAdListener(new AdListener(){
+                if (interstitialAd.isLoaded()) {
+                    interstitialAd.show();
+                }
+                interstitialAd.setAdListener(new AdListener() {
                     @Override
-                    public void onAdLoaded() {
-                        super.onAdLoaded();
-                        interstitialAd.show();
+                    public void onAdClosed() {
+                        super.onAdClosed();
+
+                        Intent i2 = new Intent(OyunEkrani.this, SureBitti.class);
+                        startActivity(i2);
                     }
                 });
-                Intent i2 = new Intent(OyunEkrani.this, SureBitti.class);
-                startActivity(i2);
+
             }
         }.start();
 
@@ -116,22 +125,32 @@ public class OyunEkrani extends AppCompatActivity {
                             sonKart = 0;
 
                             if (skor == 8) {
-                                interstitialAd.loadAd(new AdRequest.Builder().build());
+                                //  interstitialAd.loadAd(new AdRequest.Builder().build());
 
-                                interstitialAd.setAdListener(new AdListener(){
+                             /*   interstitialAd.setAdListener(new AdListener(){
                                     @Override
                                     public void onAdLoaded() {
                                         super.onAdLoaded();
                                         interstitialAd.show();
                                     }
-                                });
+                                });*/
+                                if (interstitialAd.isLoaded()) {
+                                    interstitialAd.show();
+                                }
                                 //oyun bitti
                                 timer.cancel();
-                                Intent i2 = new Intent(OyunEkrani.this, SkorEkrani.class);
+                              final   Intent i2 = new Intent(OyunEkrani.this, SkorEkrani.class);
                                 i2.putExtra("hatalar", hata);
                                 i2.putExtra("isim", s);
+                                interstitialAd.setAdListener(new AdListener(){
+                                    @Override
+                                    public void onAdClosed() {
+                                        super.onAdClosed();
+                                        startActivity(i2);
+                                    }
+                                });
 
-                                startActivity(i2);
+
                             }
                         } else {
                             Handler h = new Handler();
@@ -174,8 +193,8 @@ public class OyunEkrani extends AppCompatActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode==KeyEvent.KEYCODE_BACK){
-            AlertDialog.Builder builder=new AlertDialog.Builder(context);
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setTitle("ÇIKIŞ");
             builder.setMessage("Çıkmak istediğinize eminmisiniz?");
             builder.setPositiveButton("EVET", new DialogInterface.OnClickListener() {

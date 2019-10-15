@@ -43,6 +43,11 @@ public class SkorEkrani extends AppCompatActivity {
 
         final InterstitialAd interstitialAd=new InterstitialAd(context);
         interstitialAd.setAdUnitId(tamEkranAd);
+        final AdRequest adRequest2 = new AdRequest.Builder()
+                .addTestDevice("F8FCCB503AB1BF72B63CE923BD521B2A")
+                .build();
+        interstitialAd.loadAd(adRequest2);
+        //interstitialAd.loadAd(new AdRequest.Builder().build());
 
         butonclick3 = MediaPlayer.create(this, R.raw.btnclick);
         hatat = findViewById(R.id.hata);
@@ -51,6 +56,8 @@ public class SkorEkrani extends AppCompatActivity {
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
+
 
         Intent i = getIntent();
 
@@ -66,16 +73,11 @@ public class SkorEkrani extends AppCompatActivity {
             public void onClick(View view) {
                 butonclick3.start();
 
-                interstitialAd.loadAd(new AdRequest.Builder().build());
+               if(interstitialAd.isLoaded()){
+                   interstitialAd.show();
+               }
 
                 interstitialAd.setAdListener(new AdListener(){
-
-                    @Override
-                    public void onAdLoaded() {
-                        super.onAdLoaded();
-                        interstitialAd.show();
-                    }
-
                     @Override
                     public void onAdClosed() {
                         super.onAdClosed();
