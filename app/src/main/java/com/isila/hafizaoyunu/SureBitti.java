@@ -5,16 +5,21 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
+
+
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 public class SureBitti extends AppCompatActivity {
     Context context = this;
@@ -22,7 +27,7 @@ public class SureBitti extends AppCompatActivity {
 TextView textViewsure;
     Button btntekraroyna;
     MediaPlayer butonclicksure;
-
+    String tamEkranAd="ca-app-pub-3940256099942544/1033173712";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,12 +45,33 @@ TextView textViewsure;
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+        final InterstitialAd interstitialAd=new InterstitialAd(context);
+        interstitialAd.setAdUnitId(tamEkranAd);
+
+
         btntekraroyna.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 butonclicksure.start();
-                Intent i = new Intent(SureBitti.this, OyunEkrani.class);
-                startActivity(i);
+
+                interstitialAd.loadAd(new AdRequest.Builder().build());
+
+                interstitialAd.setAdListener(new AdListener(){
+                    @Override
+                    public void onAdLoaded() {
+                        super.onAdLoaded();
+                        interstitialAd.show();
+                    }
+
+                    @Override
+                    public void onAdClosed() {
+                        super.onAdClosed();
+                        Intent i = new Intent(SureBitti.this, OyunEkrani.class);
+                        startActivity(i);
+                    }
+                });
+
+
             }
         });
 

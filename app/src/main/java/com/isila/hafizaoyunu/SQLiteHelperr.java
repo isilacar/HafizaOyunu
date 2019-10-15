@@ -3,7 +3,7 @@ package com.isila.hafizaoyunu;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.support.annotation.Nullable;
+
 //data işlemlerimiz için bu sıfını kullanıcaz,yeni kullanıcı kayıtları için,SQLiteOpenHelper
 // sınıfını extend etmek zorunda
 public class SQLiteHelperr extends SQLiteOpenHelper {

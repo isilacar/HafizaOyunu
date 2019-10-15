@@ -19,8 +19,10 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 
 public class SkorEkrani extends AppCompatActivity {
@@ -29,7 +31,7 @@ public class SkorEkrani extends AppCompatActivity {
     Button button;
     private AdView mAdView;
     Context context = this;
-
+    String tamEkranAd="ca-app-pub-3940256099942544/1033173712";
     MediaPlayer butonclick3;
 
 
@@ -39,7 +41,8 @@ public class SkorEkrani extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.skorekrani);
 
-
+        final InterstitialAd interstitialAd=new InterstitialAd(context);
+        interstitialAd.setAdUnitId(tamEkranAd);
 
         butonclick3 = MediaPlayer.create(this, R.raw.btnclick);
         hatat = findViewById(R.id.hata);
@@ -62,8 +65,26 @@ public class SkorEkrani extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 butonclick3.start();
-                Intent i = new Intent(SkorEkrani.this, OyunEkrani.class);
-                startActivity(i);
+
+                interstitialAd.loadAd(new AdRequest.Builder().build());
+
+                interstitialAd.setAdListener(new AdListener(){
+
+                    @Override
+                    public void onAdLoaded() {
+                        super.onAdLoaded();
+                        interstitialAd.show();
+                    }
+
+                    @Override
+                    public void onAdClosed() {
+                        super.onAdClosed();
+                        Intent i = new Intent(SkorEkrani.this, OyunEkrani.class);
+                        startActivity(i);
+                    }
+                });
+
+
             }
         });
 

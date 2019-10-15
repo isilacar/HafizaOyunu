@@ -28,53 +28,6 @@
         <requestFocus />
     </EditText>
 
-<!--
-
-    <EditText
-        android:id="@+id/etsifreanaekran"
-        android:layout_width="250dp"
-        android:layout_height="40dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:textSize="16sp"
-        android:textColorHint="#fff"
-        android:background="#03A9F4"
-        android:hint=" Şifre"
-        android:drawableLeft="@drawable/sifre"
-        android:inputType="numberPassword"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/etkullaniciadianaekran" />
-
-
-    <CheckBox
-        android:id="@+id/benihatirla"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:buttonTint="#fff"
-        android:text="Beni Hatırla"
-        android:textColor="#fff"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintHorizontal_bias="0.264"
-        ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/etsifreanaekran" />
-
-
-    <Button
-        android:id="@+id/btnkayit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginRight="80dp"
-        android:text="KAYITOL"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/benihatirla" />
--->
-
     <Button
         android:gravity="center"
         android:id="@+id/btngiris"
@@ -90,46 +43,12 @@
         ads:layout_constraintStart_toStartOf="parent"
         ads:layout_constraintTop_toBottomOf="@+id/isim" />
 
-
-
-    <!--  <EditText
-          android:id="@+id/isim"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginStart="8dp"
-          android:layout_marginLeft="8dp"
-          android:layout_marginTop="216dp"
-          android:digits="@string/sayiYasak"
-          android:ems="10"
-          android:hint="@string/isim"
-          android:inputType="textPersonName"
-          ads:layout_constraintTop_toTopOf="parent"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="0.478"
-          app:layout_constraintStart_toStartOf="parent" />
-
-      <Button
-          android:id="@+id/basla"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="48dp"
-          android:background="@drawable/genel"
-          android:text="OYUNA BAŞLA"
-          android:elevation="50dp"
-          android:textColor="#fff"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="0.498"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/isim" />
-  -->
-
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-
         ads:adSize="SMART_BANNER"
         ads:adUnitId="@string/banner_ad_unit_id"
         app:layout_constraintBottom_toBottomOf="parent"

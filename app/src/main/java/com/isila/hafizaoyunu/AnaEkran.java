@@ -25,8 +25,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 
 public class AnaEkran extends AppCompatActivity {
     private AdView mAdView;
@@ -34,7 +37,8 @@ public class AnaEkran extends AppCompatActivity {
     Context context = this;
     Button btngiris;
     EditText etkullanici;
-   // CheckBox benihatirla;
+    String tamEkranAd="ca-app-pub-3940256099942544/1033173712";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +47,18 @@ public class AnaEkran extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.anaekran);
         final SharedPref sharedPref = new SharedPref();
-       /* player = MediaPlayer.create(context, R.raw.bensoundcreativeminds);
-        player.start();
-        player.setLooping(true);*/
+      //  MobileAds.initialize(context,tamEkranAd);
+        final InterstitialAd interstitialAd=new InterstitialAd(context);
+        interstitialAd.setAdUnitId(tamEkranAd);
+        interstitialAd.loadAd(new AdRequest.Builder().build());
+
+        interstitialAd.setAdListener(new AdListener(){
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+            interstitialAd.show();
+            }
+        });
 
 
         butonClick2 = MediaPlayer.create(this, R.raw.btnclick);
@@ -53,33 +66,20 @@ public class AnaEkran extends AppCompatActivity {
 
         etkullanici = findViewById(R.id.isim);
         etkullanici.setText(sharedPref.getValue(context, "kullaniciadi"));
-     //   etsifre = findViewById(R.id.etsifreanaekran);
         btngiris = findViewById(R.id.btngiris);
-     //   btnkayit = findViewById(R.id.btnkayit);
-      //  benihatirla = findViewById(R.id.benihatirla);
 
-        /*if (sharedPref.getBooleanValue(context, "remember")) {
-            etkullanici.setText(sharedPref.getValue(context, "kullaniciadi"));
-            etsifre.setText(sharedPref.getValue(context, "sifre"));
-            benihatirla.setChecked(sharedPref.getBooleanValue(context, "remember"));
-        }*/
+
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-      /*  btnkayit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(AnaEkran.this, SignUp.class);
-                startActivity(i);
-            }
-        });*/
 
         btngiris.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if(TextUtils.isEmpty(etkullanici.getText().toString())){
+                butonClick2.start();
+                if (TextUtils.isEmpty(etkullanici.getText().toString())) {
                     Toast.makeText(context, "İsim alanı boş bırakılamaz..", Toast.LENGTH_SHORT).show();
                 } else {
                     sharedPref.saveString(context, "kullaniciadi", etkullanici.getText().toString());
@@ -88,30 +88,7 @@ public class AnaEkran extends AppCompatActivity {
 
                     toastGoster();
 
-                 /*   Toast.makeText(context, "Merhaba " + etkullanici.getText().toString()+".Haf" +
-                                    "ıza Oyununa Hoşgeldin..",
-                            Toast.LENGTH_LONG).show();*/
-
-
-                    //sharedPref.saveString(context, "kullaniciadi", "");
                 }
-               /*eğer kullanıcı adı,veri tabanındakiyle eşleşiyorsa ve && şifrede eşleşiyorsa,
-                 oyun ekranına geç,startActivity(i) dedikten sonra  eğer beni hatırla işaretliyse
-                  aşağıdaki ilk if te ki gibi,kullanıcı adını ve şifreyi alıyoruz alıyoruz */
-               /* if (etkullanici.getText().toString().equals("isil") && etsifre.getText().toString().equals("1234")) {
-
-
-                    if (benihatirla.isChecked()) {
-
-                        sharedPref.saveString(context, "sifre", etsifre.getText().toString());
-                    } else {
-
-                        sharedPref.saveString(context, "sifre", "");
-                    }
-                    benihatirla işaretlimi değilmi onu kontrol ediyorum
-                    sharedPref.saveBoolean(context, "remember", benihatirla.isChecked());
-                } */
-
 
             }
         });
@@ -150,14 +127,14 @@ public class AnaEkran extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-    public void toastGoster(){
-        LayoutInflater layoutInflater=getLayoutInflater();
-        View view=layoutInflater.inflate(R.layout.custom_toast,
+    public void toastGoster() {
+        LayoutInflater layoutInflater = getLayoutInflater();
+        View view = layoutInflater.inflate(R.layout.custom_toast,
                 (ViewGroup) findViewById(R.id.toast_root));
-        TextView toastt=view.findViewById(R.id.toasttext);
-        toastt.setText("Merhaba " + etkullanici.getText().toString()+".Haf" +
+        TextView toastt = view.findViewById(R.id.toasttext);
+        toastt.setText("Merhaba " + etkullanici.getText().toString() + ".Haf" +
                 "ıza Oyununa Hoşgeldin..");
-        Toast toast=new Toast(context);
+        Toast toast = new Toast(context);
 
         toast.setGravity(Gravity.TOP, 0, 0);
         toast.setDuration(Toast.LENGTH_LONG);

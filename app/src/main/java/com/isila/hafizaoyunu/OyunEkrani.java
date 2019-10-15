@@ -20,8 +20,10 @@ import android.widget.GridLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 
 public class OyunEkrani extends AppCompatActivity {
@@ -29,7 +31,7 @@ public class OyunEkrani extends AppCompatActivity {
     int sonKart = 0;
     int skor = 0;
     int hata = 0;
-
+    String tamEkranAd="ca-app-pub-3940256099942544/1033173712";
     private AdView mAdView;
     MediaPlayer butonClick;
     Vibrator titre;
@@ -46,16 +48,15 @@ public class OyunEkrani extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.oyunekrani);
-
+        final InterstitialAd interstitialAd=new InterstitialAd(context);
+        interstitialAd.setAdUnitId(tamEkranAd);
         tvkalansure=findViewById(R.id.kalansure);
         butonClick=MediaPlayer.create(this, R.raw.btnclick);
 
         titre= (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         SharedPref sharedPref = new SharedPref();
         final String s = sharedPref.getValue(context,"kullaniciadi");
-   //     tv = findViewById(R.id.textView2);
-     //   tv.setText("");
-     //   tv.setText("Merhaba " + s + ".Hafıza Oyununa Hoşgeldin..");
+
         GridLayout gl = findViewById(R.id.kartlar);
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -70,17 +71,21 @@ public class OyunEkrani extends AppCompatActivity {
 
             @Override
             public void onFinish() {
+
+
+                interstitialAd.loadAd(new AdRequest.Builder().build());
+
+                interstitialAd.setAdListener(new AdListener(){
+                    @Override
+                    public void onAdLoaded() {
+                        super.onAdLoaded();
+                        interstitialAd.show();
+                    }
+                });
                 Intent i2 = new Intent(OyunEkrani.this, SureBitti.class);
-           //     Toast.makeText(context, "SÜRE BİTTİ", Toast.LENGTH_SHORT).show();
                 startActivity(i2);
             }
         }.start();
-
-
-
-//        Intent i = getIntent();
- //       final String s = i.getStringExtra("isim");
-
 
 
         //kartların içeriklerini bir arraya atıyoruz.
@@ -107,12 +112,19 @@ public class OyunEkrani extends AppCompatActivity {
                             k2.cevrilebilir = false;
                             skor++;
                             titre.vibrate(250);
-                           // TextView tvSkor = findViewById(R.id.textSkor);
 
-                     //       tvSkor.setText("Skorunuz = " + skor);
                             sonKart = 0;
 
                             if (skor == 8) {
+                                interstitialAd.loadAd(new AdRequest.Builder().build());
+
+                                interstitialAd.setAdListener(new AdListener(){
+                                    @Override
+                                    public void onAdLoaded() {
+                                        super.onAdLoaded();
+                                        interstitialAd.show();
+                                    }
+                                });
                                 //oyun bitti
                                 timer.cancel();
                                 Intent i2 = new Intent(OyunEkrani.this, SkorEkrani.class);
