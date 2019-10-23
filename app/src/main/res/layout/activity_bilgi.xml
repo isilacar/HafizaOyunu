@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bilgii"
+    tools:context=".Bilgi">
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="323dp"
+        android:layout_height="360dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="124dp"
+        android:gravity="center_horizontal"
+        android:text="@string/bilgi"
+        android:textColor="#08853B"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bilgiana"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:background="@drawable/bilgibutonu"
+        android:gravity="center"
+        android:text="ANA EKRAN"
+        android:textColor="#FFD600"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adViewbilgi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintHorizontal_bias="0.0"
+        ads:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"></com.google.android.gms.ads.AdView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/adViewbilgi"
+        android:textSize="13sp"
+        android:text="Arkaplan resmi=Skitterphoto adlı kişinin Pexels'deki fotoğrafı"
+        android:textColor="#212436"/>
+</android.support.constraint.ConstraintLayout>

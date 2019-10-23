@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Bilgi"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -40,9 +43,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".AnaEkran"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

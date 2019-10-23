@@ -6,43 +6,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@drawable/skorekranigradient"
+    android:background="@drawable/renkliyaprak"
     tools:context=".SkorEkrani">
-
+<!--android:background="@drawable/skorekranigradient"-->
 
     <TextView
         android:id="@+id/hata"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="240dp"
         android:gravity="center"
         android:text="nhbgfdnfgdnfgngdfngdfngdf"
-        android:textColor="#4527A0"
-        android:textSize="20sp"
+        android:textColor="#AA00FF"
+        android:textSize="25sp"
+
         android:visibility="visible"
         ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintHorizontal_bias="0.0"
+        ads:layout_constraintHorizontal_bias="1.0"
         ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/imageView" />
+        ads:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="192dp"
         android:layout_height="58dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="148dp"
         android:background="@drawable/tekraroyna"
         android:text="TEKRAR OYNA"
-        android:textColor="#7B1FA2"
+        android:textColor="#FFFF00"
         android:textSize="20sp"
-        ads:layout_constraintHorizontal_bias="0.478"
+        ads:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hata" />
 
     <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
+        android:id="@+id/adViewskor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         ads:adSize="SMART_BANNER"
@@ -50,7 +52,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="112dp"></com.google.android.gms.ads.AdView>
 
-    <ImageView
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        android:textSize="13sp"
+        ads:layout_constraintTop_toBottomOf="@+id/adViewskor"
+        android:text="Arkaplan resmi=https://pixabay.com/images/id-2690605/"
+        android:textColor="#00695C"/>
+  <!--  <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,6 +69,6 @@
         ads:layout_constraintEnd_toEndOf="parent"
         ads:layout_constraintStart_toStartOf="parent"
         ads:layout_constraintTop_toTopOf="parent"
-        ads:srcCompat="@drawable/mutlu" />
+        ads:srcCompat="@drawable/mutlu" />-->
 
 </android.support.constraint.ConstraintLayout>

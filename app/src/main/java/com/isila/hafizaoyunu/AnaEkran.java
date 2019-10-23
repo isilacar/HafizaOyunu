@@ -35,7 +35,7 @@ public class AnaEkran extends AppCompatActivity {
     private AdView mAdView;
     MediaPlayer butonClick2;
     Context context = this;
-    Button btngiris;
+    Button btngiris,btnbilgi;
     EditText etkullanici;
     String tamEkranAd="ca-app-pub-3940256099942544/1033173712";
 
@@ -51,7 +51,7 @@ public class AnaEkran extends AppCompatActivity {
         final InterstitialAd interstitialAd=new InterstitialAd(context);
         interstitialAd.setAdUnitId(tamEkranAd);
         final AdRequest adRequest2 = new AdRequest.Builder()
-                .addTestDevice("F8FCCB503AB1BF72B63CE923BD521B2A")
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
         interstitialAd.loadAd(adRequest2);
 
@@ -71,7 +71,7 @@ public class AnaEkran extends AppCompatActivity {
         etkullanici = findViewById(R.id.isim);
         etkullanici.setText(sharedPref.getValue(context, "kullaniciadi"));
         btngiris = findViewById(R.id.btngiris);
-
+        btnbilgi=findViewById(R.id.btnbilgi);
 
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -94,6 +94,14 @@ public class AnaEkran extends AppCompatActivity {
 
                 }
 
+            }
+        });
+
+        btnbilgi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(AnaEkran.this,Bilgi.class);
+                startActivity(i);
             }
         });
 

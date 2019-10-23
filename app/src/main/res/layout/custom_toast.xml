@@ -6,7 +6,7 @@
     android:orientation="horizontal"
     android:padding="10dp"
     android:id="@+id/toast_root"
-    android:background="#fff"
+    android:background="#FFAB00"
     >
 
     <ImageView
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:text="Merhaba Hafıza Oyununa Hoşgeldin...."
         android:layout_height="wrap_content"
-        android:textColor="#283593"
+        android:textColor="#6200EA"
         android:textSize="16dp" />
 
 </LinearLayout>

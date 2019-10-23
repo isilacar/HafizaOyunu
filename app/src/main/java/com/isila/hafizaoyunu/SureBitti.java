@@ -15,7 +15,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
-
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -24,20 +23,21 @@ import com.google.android.gms.ads.InterstitialAd;
 public class SureBitti extends AppCompatActivity {
     Context context = this;
     private AdView mAdView;
-TextView textViewsure;
+    TextView textViewsure;
     Button btntekraroyna;
     MediaPlayer butonclicksure;
     //test ad unit ID
-    String tamEkranAd="ca-app-pub-3940256099942544/1033173712";
+    String tamEkranAd = "ca-app-pub-3940256099942544/1033173712";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_sure_bitti);
-        textViewsure=findViewById(R.id.surebitti);
-        SharedPref sharedPref=new SharedPref();
-        String isim=sharedPref.getValue(context, "kullaniciadi");
-        textViewsure.setText(isim.toUpperCase()+", SÜREN BİTTİ. OYUNU TAMAMLAYAMADIN..");
+        textViewsure = findViewById(R.id.surebitti);
+        SharedPref sharedPref = new SharedPref();
+        String isim = sharedPref.getValue(context, "kullaniciadi");
+        textViewsure.setText(isim.toUpperCase() + ", SÜREN BİTTİ. OYUNU TAMAMLAYAMADIN..");
         btntekraroyna = findViewById(R.id.tekraroyna);
 
         butonclicksure = MediaPlayer.create(this, R.raw.btnclick);
@@ -46,30 +46,32 @@ TextView textViewsure;
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        final InterstitialAd interstitialAd=new InterstitialAd(context);
+        final InterstitialAd interstitialAd = new InterstitialAd(context);
         interstitialAd.setAdUnitId(tamEkranAd);
         final AdRequest adRequest2 = new AdRequest.Builder()
-                .addTestDevice("F8FCCB503AB1BF72B63CE923BD521B2A")
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
         interstitialAd.loadAd(adRequest2);
-       // interstitialAd.loadAd(new AdRequest.Builder().build());
+        // interstitialAd.loadAd(new AdRequest.Builder().build());
 
         btntekraroyna.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 butonclicksure.start();
-
-                if(interstitialAd.isLoaded()){
+                final Intent i = new Intent(SureBitti.this, OyunEkrani.class);
+                if (interstitialAd.isLoaded()) {
                     interstitialAd.show();
+                } else {
+                    startActivity(i);
                 }
 
-                interstitialAd.setAdListener(new AdListener(){
+                interstitialAd.setAdListener(new AdListener() {
 
                     @Override
                     public void onAdClosed() {
                         super.onAdClosed();
                         interstitialAd.loadAd(adRequest2);
-                        Intent i = new Intent(SureBitti.this, OyunEkrani.class);
+
                         startActivity(i);
                     }
                 });
@@ -78,6 +80,13 @@ TextView textViewsure;
             }
         });
 
+    }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
     }
 
     @Override

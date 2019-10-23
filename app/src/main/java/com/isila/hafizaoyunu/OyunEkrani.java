@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -36,8 +37,6 @@ public class OyunEkrani extends AppCompatActivity {
     MediaPlayer butonClick;
     Vibrator titre;
     CountDownTimer timer;
-
-
     Context context = this;
 
     public OyunEkrani() {
@@ -60,7 +59,7 @@ public class OyunEkrani extends AppCompatActivity {
 
         //tam ekran reklam
         final AdRequest adRequest2 = new AdRequest.Builder()
-                .addTestDevice("F8FCCB503AB1BF72B63CE923BD521B2A")
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
         interstitialAd.loadAd(adRequest2);
         //   interstitialAd.loadAd(new AdRequest.Builder().build());
@@ -79,17 +78,19 @@ public class OyunEkrani extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-
+               final Intent i3 = new Intent(OyunEkrani.this, SureBitti.class);
                 if (interstitialAd.isLoaded()) {
                     interstitialAd.show();
+                }
+                else{
+                    startActivity(i3);
                 }
                 interstitialAd.setAdListener(new AdListener() {
                     @Override
                     public void onAdClosed() {
                         super.onAdClosed();
                         interstitialAd.loadAd(adRequest2);
-                        Intent i2 = new Intent(OyunEkrani.this, SureBitti.class);
-                        startActivity(i2);
+                        startActivity(i3);
                     }
                 });
 
@@ -125,23 +126,16 @@ public class OyunEkrani extends AppCompatActivity {
                             sonKart = 0;
 
                             if (skor == 8) {
-                                //  interstitialAd.loadAd(new AdRequest.Builder().build());
-
-                             /*   interstitialAd.setAdListener(new AdListener(){
-                                    @Override
-                                    public void onAdLoaded() {
-                                        super.onAdLoaded();
-                                        interstitialAd.show();
-                                    }
-                                });*/
-                                if (interstitialAd.isLoaded()) {
-                                    interstitialAd.show();
-                                }
                                 //oyun bitti
                                 timer.cancel();
-                              final   Intent i2 = new Intent(OyunEkrani.this, SkorEkrani.class);
+                                final   Intent i2 = new Intent(OyunEkrani.this, SkorEkrani.class);
                                 i2.putExtra("hatalar", hata);
                                 i2.putExtra("isim", s);
+                                if (interstitialAd.isLoaded()) {
+                                    interstitialAd.show();
+                                }else{
+                                    startActivity(i2);
+                                }
                                 interstitialAd.setAdListener(new AdListener(){
                                     @Override
                                     public void onAdClosed() {
@@ -188,6 +182,15 @@ public class OyunEkrani extends AppCompatActivity {
         for (int a = 1; a < 17; a++) {
             gl.addView(kartlar[a - 1]);
         }
+
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        timer.cancel();
+        finish();
 
     }
 

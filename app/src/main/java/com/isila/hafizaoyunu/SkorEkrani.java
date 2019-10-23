@@ -31,7 +31,7 @@ public class SkorEkrani extends AppCompatActivity {
     Button button;
     private AdView mAdView;
     Context context = this;
-    String tamEkranAd="ca-app-pub-3940256099942544/1033173712";
+    String tamEkranAd = "ca-app-pub-3940256099942544/1033173712";
     MediaPlayer butonclick3;
 
 
@@ -41,10 +41,10 @@ public class SkorEkrani extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.skorekrani);
 
-        final InterstitialAd interstitialAd=new InterstitialAd(context);
+        final InterstitialAd interstitialAd = new InterstitialAd(context);
         interstitialAd.setAdUnitId(tamEkranAd);
         final AdRequest adRequest2 = new AdRequest.Builder()
-                .addTestDevice("F8FCCB503AB1BF72B63CE923BD521B2A")
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
         interstitialAd.loadAd(adRequest2);
         //interstitialAd.loadAd(new AdRequest.Builder().build());
@@ -53,10 +53,9 @@ public class SkorEkrani extends AppCompatActivity {
         hatat = findViewById(R.id.hata);
         button = findViewById(R.id.button);
 
-        mAdView = findViewById(R.id.adView);
+        mAdView = findViewById(R.id.adViewskor);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
 
 
         Intent i = getIntent();
@@ -64,7 +63,7 @@ public class SkorEkrani extends AppCompatActivity {
         int hata = i.getIntExtra("hatalar", 0);
         //  String isim=i.getStringExtra("isim");
         SharedPref sharedPref = new SharedPref();
-        final String isim = sharedPref.getValue(context,"kullaniciadi");
+        final String isim = sharedPref.getValue(context, "kullaniciadi");
 
         hatat.setText(isim.toUpperCase() + ", " + hata + " HATA İLE OYUNU BİTİRDİN. TEBRİKLER..");
 
@@ -72,17 +71,18 @@ public class SkorEkrani extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 butonclick3.start();
+                final Intent i = new Intent(SkorEkrani.this, OyunEkrani.class);
+                if (interstitialAd.isLoaded()) {
+                    interstitialAd.show();
+                } else {
+                    startActivity(i);
+                }
 
-               if(interstitialAd.isLoaded()){
-                   interstitialAd.show();
-               }
-
-                interstitialAd.setAdListener(new AdListener(){
+                interstitialAd.setAdListener(new AdListener() {
                     @Override
                     public void onAdClosed() {
                         super.onAdClosed();
                         interstitialAd.loadAd(adRequest2);
-                        Intent i = new Intent(SkorEkrani.this, OyunEkrani.class);
                         startActivity(i);
                     }
                 });
@@ -91,6 +91,12 @@ public class SkorEkrani extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
     }
 
 
