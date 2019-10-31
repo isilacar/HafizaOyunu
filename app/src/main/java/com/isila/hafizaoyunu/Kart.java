@@ -24,28 +24,28 @@ public class Kart extends Button {
         // ulaşıyoruz
 
         if(id%8==1){
-            onID=R.drawable.sbahar1;
+            onID=R.drawable.yaprak;
         }
         if(id%8==2){
-            onID=R.drawable.sbahar2;
+            onID=R.drawable.yaprak2;
         }
         if(id%8==3){
-            onID=R.drawable.sbahar3;
+            onID=R.drawable.yaprak3;
         }
         if(id%8==4){
-            onID=R.drawable.sbahar4;
+            onID=R.drawable.yaprak4;
         }
         if(id%8==5){
-            onID=R.drawable.sbahar5;
+            onID=R.drawable.yaprak5;
         }
         if(id%8==6){
-            onID=R.drawable.sbahar6;
+            onID=R.drawable.yaprak6;
         }
         if(id%8==7){
-            onID=R.drawable.sbahar7;
+            onID=R.drawable.yaprak7;
         }
         if(id%8==0){
-            onID=R.drawable.sbahar8;
+            onID=R.drawable.yaprak8;
         }
 
         arka = AppCompatDrawableManager.get().getDrawable(context, arkaPlanID);
