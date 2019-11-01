@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -17,6 +18,7 @@ import com.google.android.gms.ads.AdView;
 public class Bilgi extends AppCompatActivity {
 Button btnanaekran;
 Context context=this;
+MediaPlayer btnclickk;
 private AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +26,11 @@ private AdView mAdView;
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_bilgi);
         btnanaekran=findViewById(R.id.bilgiana);
+        btnclickk=MediaPlayer.create(this, R.raw.butonses);
         btnanaekran.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                btnclickk.start();
                 Intent i=new Intent(Bilgi.this,AnaEkran.class);
                 startActivity(i);
             }

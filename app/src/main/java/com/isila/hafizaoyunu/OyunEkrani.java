@@ -34,7 +34,7 @@ public class OyunEkrani extends AppCompatActivity {
     int hata = 0;
     String tamEkranAd = "ca-app-pub-3940256099942544/1033173712";
     private AdView mAdView;
-    MediaPlayer butonClick;
+    MediaPlayer butonClick,eslesdi,skorekrani,surebitti;
     Vibrator titre;
     CountDownTimer timer;
     Context context = this;
@@ -52,6 +52,9 @@ public class OyunEkrani extends AppCompatActivity {
         interstitialAd.setAdUnitId(tamEkranAd);
         tvkalansure = findViewById(R.id.kalansure);
         butonClick = MediaPlayer.create(this, R.raw.btnclick);
+        eslesdi=MediaPlayer.create(this,R.raw.eslesdi2);
+        skorekrani=MediaPlayer.create(this,R.raw.skorekran);
+        surebitti=MediaPlayer.create(this,R.raw.surebitti);
 
         titre = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         SharedPref sharedPref = new SharedPref();
@@ -83,6 +86,7 @@ public class OyunEkrani extends AppCompatActivity {
                     interstitialAd.show();
                 }
                 else{
+                    surebitti.start();
                     startActivity(i3);
                 }
                 interstitialAd.setAdListener(new AdListener() {
@@ -90,6 +94,7 @@ public class OyunEkrani extends AppCompatActivity {
                     public void onAdClosed() {
                         super.onAdClosed();
                         interstitialAd.loadAd(adRequest2);
+                        surebitti.start();
                         startActivity(i3);
                     }
                 });
@@ -110,18 +115,20 @@ public class OyunEkrani extends AppCompatActivity {
                 public void onClick(View v) {
                     final Kart k = (Kart) v;
                     k.cevir();
-                    butonClick.start();
+                //    butonClick.start();
                     //eğer bir kart çevrilmişse
                     if (sonKart > 0) {
 
                         final Kart k2 = findViewById(sonKart);
                         if (k2.onID == k.onID && k2.getId() != k.getId()) {
+
                             k.setClickable(false);
                             k2.setClickable(false);
                             k.cevrilebilir = false;
                             k2.cevrilebilir = false;
                             skor++;
-                            titre.vibrate(250);
+                           // titre.vibrate(250);
+                            eslesdi.start();
 
                             sonKart = 0;
 
@@ -134,6 +141,7 @@ public class OyunEkrani extends AppCompatActivity {
                                 if (interstitialAd.isLoaded()) {
                                     interstitialAd.show();
                                 }else{
+                                    skorekrani.start();
                                     startActivity(i2);
                                 }
                                 interstitialAd.setAdListener(new AdListener(){
@@ -141,6 +149,7 @@ public class OyunEkrani extends AppCompatActivity {
                                     public void onAdClosed() {
                                         super.onAdClosed();
                                         interstitialAd.loadAd(adRequest2);
+                                        skorekrani.start();
                                         startActivity(i2);
                                     }
                                 });

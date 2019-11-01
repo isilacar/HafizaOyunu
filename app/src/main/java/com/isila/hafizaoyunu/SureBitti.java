@@ -40,7 +40,7 @@ public class SureBitti extends AppCompatActivity {
         textViewsure.setText(isim.toUpperCase() + ", SÜREN BİTTİ. OYUNU TAMAMLAYAMADIN..");
         btntekraroyna = findViewById(R.id.tekraroyna);
 
-        butonclicksure = MediaPlayer.create(this, R.raw.btnclick);
+        butonclicksure = MediaPlayer.create(this, R.raw.butonses);
 
         mAdView = findViewById(R.id.adViewsurebitti);
         AdRequest adRequest = new AdRequest.Builder().build();

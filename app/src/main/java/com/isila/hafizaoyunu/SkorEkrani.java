@@ -49,7 +49,7 @@ public class SkorEkrani extends AppCompatActivity {
         interstitialAd.loadAd(adRequest2);
         //interstitialAd.loadAd(new AdRequest.Builder().build());
 
-        butonclick3 = MediaPlayer.create(this, R.raw.btnclick);
+        butonclick3 = MediaPlayer.create(this, R.raw.butonses);
         hatat = findViewById(R.id.hata);
         button = findViewById(R.id.button);
 

@@ -65,7 +65,7 @@ public class AnaEkran extends AppCompatActivity {
         });
 
 
-        butonClick2 = MediaPlayer.create(this, R.raw.btnclick);
+        butonClick2 = MediaPlayer.create(this, R.raw.butonses);
 
 
         etkullanici = findViewById(R.id.isim);
@@ -100,6 +100,7 @@ public class AnaEkran extends AppCompatActivity {
         btnbilgi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                butonClick2.start();
                 Intent i=new Intent(AnaEkran.this,Bilgi.class);
                 startActivity(i);
             }
