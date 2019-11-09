@@ -66,6 +66,7 @@ public class OyunEkrani extends AppCompatActivity {
         interstitialAd.loadAd(adRequest2);
         //   interstitialAd.loadAd(new AdRequest.Builder().build());
 
+
         GridLayout gl = findViewById(R.id.kartlar);
 
         mAdView = findViewById(R.id.adView);
