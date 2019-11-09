@@ -32,7 +32,7 @@ public class OyunEkrani extends AppCompatActivity {
     int sonKart = 0;
     int skor = 0;
     int hata = 0;
-    String tamEkranAd = "ca-app-pub-3940256099942544/1033173712";
+    String tamEkranAd = "ca-app-pub-6855653886010075/1791522221";
     private AdView mAdView;
     MediaPlayer butonClick,eslesdi,skorekrani,surebitti;
     Vibrator titre;
@@ -62,12 +62,12 @@ public class OyunEkrani extends AppCompatActivity {
 
         //tam ekran reklam
         final AdRequest adRequest2 = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
         interstitialAd.loadAd(adRequest2);
         //   interstitialAd.loadAd(new AdRequest.Builder().build());
 
         GridLayout gl = findViewById(R.id.kartlar);
+
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);

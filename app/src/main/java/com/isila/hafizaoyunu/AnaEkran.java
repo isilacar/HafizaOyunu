@@ -37,7 +37,7 @@ public class AnaEkran extends AppCompatActivity {
     Context context = this;
     Button btngiris,btnbilgi;
     EditText etkullanici;
-    String tamEkranAd="ca-app-pub-3940256099942544/1033173712";
+    String tamEkranAd="ca-app-pub-6855653886010075/1791522221";
 
 
     @Override
@@ -47,11 +47,14 @@ public class AnaEkran extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.anaekran);
         final SharedPref sharedPref = new SharedPref();
-      //  MobileAds.initialize(context,tamEkranAd);
+
+        //GoogleAdmob da ki hafıza Oyunununadmob idsi
+        MobileAds.initialize(context,
+                "ca-app-pub-6855653886010075~8640001602");
+
         final InterstitialAd interstitialAd=new InterstitialAd(context);
         interstitialAd.setAdUnitId(tamEkranAd);
         final AdRequest adRequest2 = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
         interstitialAd.loadAd(adRequest2);
 

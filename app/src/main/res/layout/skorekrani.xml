@@ -61,14 +61,6 @@
         ads:layout_constraintTop_toBottomOf="@+id/adViewskor"
         android:text="Arkaplan resmi=https://pixabay.com/images/id-2690605/"
         android:textColor="#00695C"/>
-  <!--  <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toTopOf="parent"
-        ads:srcCompat="@drawable/mutlu" />-->
+
 
 </android.support.constraint.ConstraintLayout>

@@ -31,7 +31,7 @@ public class SkorEkrani extends AppCompatActivity {
     Button button;
     private AdView mAdView;
     Context context = this;
-    String tamEkranAd = "ca-app-pub-3940256099942544/1033173712";
+    String tamEkranAd = "ca-app-pub-6855653886010075/1791522221";
     MediaPlayer butonclick3;
 
 
@@ -44,7 +44,6 @@ public class SkorEkrani extends AppCompatActivity {
         final InterstitialAd interstitialAd = new InterstitialAd(context);
         interstitialAd.setAdUnitId(tamEkranAd);
         final AdRequest adRequest2 = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
         interstitialAd.loadAd(adRequest2);
         //interstitialAd.loadAd(new AdRequest.Builder().build());

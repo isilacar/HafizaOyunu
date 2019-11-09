@@ -27,7 +27,7 @@ public class SureBitti extends AppCompatActivity {
     Button btntekraroyna;
     MediaPlayer butonclicksure;
     //test ad unit ID
-    String tamEkranAd = "ca-app-pub-3940256099942544/1033173712";
+    String tamEkranAd = "ca-app-pub-6855653886010075/1791522221";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +49,6 @@ public class SureBitti extends AppCompatActivity {
         final InterstitialAd interstitialAd = new InterstitialAd(context);
         interstitialAd.setAdUnitId(tamEkranAd);
         final AdRequest adRequest2 = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
         interstitialAd.loadAd(adRequest2);
         // interstitialAd.loadAd(new AdRequest.Builder().build());
