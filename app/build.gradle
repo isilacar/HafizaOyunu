@@ -2,13 +2,21 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 
 android {
+    signingConfigs {
+        hafizaOyunu {
+            keyAlias 'hafizaoyunu'
+            keyPassword '13101986'
+            storeFile file('C:/Users/isila/Desktop/hafizaOyunuAPK/hafizaoyunu.jks')
+            storePassword '13101986'
+        }
+    }
     compileSdkVersion 29
     buildToolsVersion '29.0.1'
     defaultConfig {
         applicationId 'com.isila.hafizaoyunu'
         minSdkVersion 15
         targetSdkVersion 29
-        versionCode 1
+        versionCode 5
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -16,9 +24,9 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.hafizaOyunu
         }
     }
-
 }
 
 dependencies {

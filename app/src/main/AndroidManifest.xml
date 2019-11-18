@@ -31,9 +31,6 @@
         <activity
             android:name=".SureBitti"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".SignUp"
-            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"

@@ -8,7 +8,7 @@
     android:layout_gravity="center"
     android:background="@drawable/renkliyaprak"
     tools:context=".SkorEkrani">
-<!--android:background="@drawable/skorekranigradient"-->
+
 
     <TextView
         android:id="@+id/hata"

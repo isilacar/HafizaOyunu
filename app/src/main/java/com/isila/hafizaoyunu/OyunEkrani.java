@@ -5,21 +5,16 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Vibrator;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SwitchCompat;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.CompoundButton;
 import android.widget.GridLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -64,7 +59,7 @@ public class OyunEkrani extends AppCompatActivity {
         final AdRequest adRequest2 = new AdRequest.Builder()
                 .build();
         interstitialAd.loadAd(adRequest2);
-        //   interstitialAd.loadAd(new AdRequest.Builder().build());
+
 
 
         GridLayout gl = findViewById(R.id.kartlar);
