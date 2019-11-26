@@ -1,13 +1,16 @@
 package com.isila.hafizaoyunu;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
-public class SplashActivity extends AppCompatActivity {
+import com.google.android.gms.ads.MobileAds;
 
+public class SplashActivity extends AppCompatActivity {
+Context context=this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,6 +18,11 @@ public class SplashActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
+
+        //GoogleAdmob da ki hafıza Oyunununadmob idsi
+        MobileAds.initialize(context,
+                "ca-app-pub-6855653886010075~8640001602");
+
         new SayfaGecisi().start();
 
 
@@ -23,7 +31,7 @@ public class SplashActivity extends AppCompatActivity {
         @Override
         public void run() {
             try {
-                Thread.sleep(5000);
+                Thread.sleep(1500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

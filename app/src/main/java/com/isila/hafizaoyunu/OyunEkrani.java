@@ -4,11 +4,13 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Vibrator;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -29,10 +31,11 @@ public class OyunEkrani extends AppCompatActivity {
     int hata = 0;
     String tamEkranAd = "ca-app-pub-6855653886010075/1791522221";
     private AdView mAdView;
-    MediaPlayer butonClick,eslesdi,skorekrani,surebitti;
-    Vibrator titre;
+    MediaPlayer butonClick, eslesdi, skorekrani, surebitti;
+    private InterstitialAd interstitialAd;
     CountDownTimer timer;
     Context context = this;
+
 
     public OyunEkrani() {
 
@@ -43,27 +46,27 @@ public class OyunEkrani extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.oyunekrani);
-        final InterstitialAd interstitialAd = new InterstitialAd(context);
+
+        interstitialAd = new InterstitialAd(context);
         interstitialAd.setAdUnitId(tamEkranAd);
+
+
+
         tvkalansure = findViewById(R.id.kalansure);
         butonClick = MediaPlayer.create(this, R.raw.btnclick);
-        eslesdi=MediaPlayer.create(this,R.raw.eslesdi2);
-        skorekrani=MediaPlayer.create(this,R.raw.skorekran);
-        surebitti=MediaPlayer.create(this,R.raw.surebitti);
-
-        titre = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        SharedPref sharedPref = new SharedPref();
-        final String s = sharedPref.getValue(context, "kullaniciadi");
+        eslesdi = MediaPlayer.create(this, R.raw.eslesdi2);
+        skorekrani = MediaPlayer.create(this, R.raw.skorekran);
+        surebitti = MediaPlayer.create(this, R.raw.surebitti);
 
         //tam ekran reklam
-        final AdRequest adRequest2 = new AdRequest.Builder()
-                .build();
+        final AdRequest adRequest2 = new AdRequest.Builder().build();
         interstitialAd.loadAd(adRequest2);
 
 
 
         GridLayout gl = findViewById(R.id.kartlar);
 
+        //Banner Reklam
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -77,24 +80,22 @@ public class OyunEkrani extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-               final Intent i3 = new Intent(OyunEkrani.this, SureBitti.class);
+                final Intent i3 = new Intent(OyunEkrani.this, SureBitti.class);
+
                 if (interstitialAd.isLoaded()) {
                     interstitialAd.show();
-                }
-                else{
+                } else {
                     surebitti.start();
                     startActivity(i3);
                 }
                 interstitialAd.setAdListener(new AdListener() {
                     @Override
                     public void onAdClosed() {
-                        super.onAdClosed();
                         interstitialAd.loadAd(adRequest2);
                         surebitti.start();
                         startActivity(i3);
                     }
                 });
-
             }
         }.start();
 
@@ -111,7 +112,7 @@ public class OyunEkrani extends AppCompatActivity {
                 public void onClick(View v) {
                     final Kart k = (Kart) v;
                     k.cevir();
-                //    butonClick.start();
+
                     //eğer bir kart çevrilmişse
                     if (sonKart > 0) {
 
@@ -123,24 +124,23 @@ public class OyunEkrani extends AppCompatActivity {
                             k.cevrilebilir = false;
                             k2.cevrilebilir = false;
                             skor++;
-                           // titre.vibrate(250);
+                            // titre.vibrate(250);
                             eslesdi.start();
 
                             sonKart = 0;
-
+                            //oyun bitti
                             if (skor == 8) {
-                                //oyun bitti
                                 timer.cancel();
-                                final   Intent i2 = new Intent(OyunEkrani.this, SkorEkrani.class);
+                                final Intent i2 = new Intent(OyunEkrani.this, SkorEkrani.class);
                                 i2.putExtra("hatalar", hata);
-                                i2.putExtra("isim", s);
+                             // i2.putExtra("isim", s);
                                 if (interstitialAd.isLoaded()) {
                                     interstitialAd.show();
-                                }else{
+                                } else {
                                     skorekrani.start();
                                     startActivity(i2);
                                 }
-                                interstitialAd.setAdListener(new AdListener(){
+                                interstitialAd.setAdListener(new AdListener() {
                                     @Override
                                     public void onAdClosed() {
                                         super.onAdClosed();

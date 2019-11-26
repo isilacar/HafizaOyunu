@@ -15,7 +15,7 @@
         android:layout_width="304dp"
         android:layout_height="49dp"
         android:layout_centerInParent="true"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="92dp"
         android:drawableLeft="@drawable/userkoyu"
         android:ems="10"
         android:hint=" Kullanıcı Adı"
@@ -23,7 +23,7 @@
         android:textColorHint="#3407A0"
         android:textSize="25sp"
         ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintHorizontal_bias="0.663"
+        ads:layout_constraintHorizontal_bias="0.495"
         ads:layout_constraintStart_toStartOf="parent"
         ads:layout_constraintTop_toTopOf="parent">
 
@@ -36,12 +36,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="104dp"
         android:layout_marginLeft="104dp"
-        android:layout_marginTop="336dp"
+        android:layout_marginTop="344dp"
         android:background="@drawable/baslabutonu"
         android:gravity="center"
         android:text="OYUNA BAŞLA"
         android:textColor="#880E4F"
         android:textSize="25sp"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintHorizontal_bias="0.009"
         ads:layout_constraintStart_toStartOf="parent"
         ads:layout_constraintTop_toBottomOf="@+id/isim" />
 
@@ -51,14 +53,18 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="104dp"
         android:layout_marginLeft="104dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/bilgibutonu"
         android:gravity="center"
         android:text="NASIL OYNANIR"
         android:textColor="#FFD600"
         android:textSize="25sp"
+        ads:layout_constraintBottom_toTopOf="@+id/adView"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintHorizontal_bias="0.009"
         ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/btngiris" />
+        ads:layout_constraintTop_toBottomOf="@+id/btngiris"
+        ads:layout_constraintVertical_bias="0.227" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"

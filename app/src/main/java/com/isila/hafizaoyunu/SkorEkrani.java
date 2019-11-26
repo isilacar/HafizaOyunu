@@ -1,11 +1,14 @@
 package com.isila.hafizaoyunu;
 
 import android.app.AlertDialog;
+import android.app.Presentation;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -18,6 +21,8 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
+import java.util.prefs.PreferenceChangeEvent;
+
 
 public class SkorEkrani extends AppCompatActivity {
 
@@ -27,6 +32,8 @@ public class SkorEkrani extends AppCompatActivity {
     Context context = this;
     String tamEkranAd = "ca-app-pub-6855653886010075/1791522221";
     MediaPlayer butonclick3;
+    private InterstitialAd interstitialAd;
+    SharedPreferences sp;
 
 
     @Override
@@ -35,28 +42,28 @@ public class SkorEkrani extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.skorekrani);
 
-        final InterstitialAd interstitialAd = new InterstitialAd(context);
-        interstitialAd.setAdUnitId(tamEkranAd);
-        final AdRequest adRequest2 = new AdRequest.Builder()
-                .build();
-        interstitialAd.loadAd(adRequest2);
-        //interstitialAd.loadAd(new AdRequest.Builder().build());
+        sp= PreferenceManager.getDefaultSharedPreferences(context);
 
-        butonclick3 = MediaPlayer.create(this, R.raw.butonses);
-        hatat = findViewById(R.id.hata);
-        button = findViewById(R.id.button);
+
+        interstitialAd = new InterstitialAd(context);
+        interstitialAd.setAdUnitId(tamEkranAd);
+        final AdRequest adRequest2 = new AdRequest.Builder().build();
+        interstitialAd.loadAd(adRequest2);
 
         mAdView = findViewById(R.id.adViewskor);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+        butonclick3 = MediaPlayer.create(this, R.raw.butonses);
+        hatat = findViewById(R.id.hata);
+        button = findViewById(R.id.button);
 
         Intent i = getIntent();
 
         int hata = i.getIntExtra("hatalar", 0);
         //  String isim=i.getStringExtra("isim");
-        SharedPref sharedPref = new SharedPref();
-        final String isim = sharedPref.getValue(context, "kullaniciadi");
+     //   SharedPref sharedPref = new SharedPref();
+        final String isim = sp.getString("kullaniciadi", null);
 
         hatat.setText(isim.toUpperCase() + ", " + hata + " HATA İLE OYUNU BİTİRDİN. TEBRİKLER..");
 

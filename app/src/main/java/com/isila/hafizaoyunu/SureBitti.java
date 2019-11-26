@@ -4,8 +4,10 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -26,30 +28,36 @@ public class SureBitti extends AppCompatActivity {
     MediaPlayer butonclicksure;
     //test ad unit ID
     String tamEkranAd = "ca-app-pub-6855653886010075/1791522221";
+    private InterstitialAd interstitialAd;
+    SharedPreferences sp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_sure_bitti);
+
+        sp= PreferenceManager.getDefaultSharedPreferences(context);
+
+
         textViewsure = findViewById(R.id.surebitti);
-        SharedPref sharedPref = new SharedPref();
-        String isim = sharedPref.getValue(context, "kullaniciadi");
+      //  SharedPref sharedPref = new SharedPref();
+        String isim = sp.getString("kullaniciadi", null);
         textViewsure.setText(isim.toUpperCase() + ", SÜREN BİTTİ. OYUNU TAMAMLAYAMADIN..");
         btntekraroyna = findViewById(R.id.tekraroyna);
 
         butonclicksure = MediaPlayer.create(this, R.raw.butonses);
 
+        interstitialAd = new InterstitialAd(context);
+        interstitialAd.setAdUnitId(tamEkranAd);
+        final AdRequest adRequest2 = new AdRequest.Builder().build();
+        interstitialAd.loadAd(adRequest2);
+
         mAdView = findViewById(R.id.adViewsurebitti);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        final InterstitialAd interstitialAd = new InterstitialAd(context);
-        interstitialAd.setAdUnitId(tamEkranAd);
-        final AdRequest adRequest2 = new AdRequest.Builder()
-                .build();
-        interstitialAd.loadAd(adRequest2);
-        // interstitialAd.loadAd(new AdRequest.Builder().build());
 
         btntekraroyna.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +76,6 @@ public class SureBitti extends AppCompatActivity {
                     public void onAdClosed() {
                         super.onAdClosed();
                         interstitialAd.loadAd(adRequest2);
-
                         startActivity(i);
                     }
                 });
