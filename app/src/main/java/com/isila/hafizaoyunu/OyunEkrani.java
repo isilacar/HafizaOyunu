@@ -29,7 +29,7 @@ public class OyunEkrani extends AppCompatActivity {
     int sonKart = 0;
     int skor = 0;
     int hata = 0;
-    String tamEkranAd = "ca-app-pub-6855653886010075/1791522221";
+    String tamEkranAd = "ca-app-pub-5037089565212879/7301103816";
     private AdView mAdView;
     MediaPlayer butonClick, eslesdi, skorekrani, surebitti;
     private InterstitialAd interstitialAd;

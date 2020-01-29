@@ -27,7 +27,7 @@ public class SureBitti extends AppCompatActivity {
     Button btntekraroyna;
     MediaPlayer butonclicksure;
     //test ad unit ID
-    String tamEkranAd = "ca-app-pub-6855653886010075/1791522221";
+    String tamEkranAd = "ca-app-pub-5037089565212879/7301103816";
     private InterstitialAd interstitialAd;
     SharedPreferences sp;
 

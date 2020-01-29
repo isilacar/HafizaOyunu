@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 
 android {
+
+
     signingConfigs {
         hafizaOyunu {
             keyAlias 'hafizaoyunu'
@@ -16,8 +18,8 @@ android {
         applicationId 'com.isila.hafizaoyunu'
         minSdkVersion 15
         targetSdkVersion 29
-        versionCode 9
-        versionName "1.9"
+        versionCode 1
+        versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -41,8 +43,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.google.firebase:firebase-ads:17.0.0'
-
-
 
 
 }

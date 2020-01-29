@@ -30,7 +30,7 @@ public class SkorEkrani extends AppCompatActivity {
     Button button;
     private AdView mAdView;
     Context context = this;
-    String tamEkranAd = "ca-app-pub-6855653886010075/1791522221";
+    String tamEkranAd = "ca-app-pub-5037089565212879/7301103816";
     MediaPlayer butonclick3;
     private InterstitialAd interstitialAd;
     SharedPreferences sp;

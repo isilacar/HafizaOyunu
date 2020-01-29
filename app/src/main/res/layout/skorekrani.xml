@@ -44,7 +44,6 @@
         android:id="@+id/adViewskor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         ads:adSize="SMART_BANNER"
@@ -52,15 +51,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="112dp"></com.google.android.gms.ads.AdView>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintStart_toStartOf="parent"
-        android:textSize="13sp"
-        ads:layout_constraintTop_toBottomOf="@+id/adViewskor"
-        android:text="Arkaplan resmi=https://pixabay.com/images/id-2690605/"
-        android:textColor="#00695C"/>
 
 
 </android.support.constraint.ConstraintLayout>

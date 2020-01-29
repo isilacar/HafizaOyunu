@@ -34,7 +34,7 @@ public class AnaEkran extends AppCompatActivity {
     Context context = this;
     Button btngiris, btnbilgi;
     EditText etkullanici;
-    String tamEkranAd = "ca-app-pub-6855653886010075/1791522221";
+    String tamEkranAd = "ca-app-pub-5037089565212879/7301103816";
     private InterstitialAd interstitialAd;
     SharedPreferences sp;
     SharedPreferences.Editor spe;

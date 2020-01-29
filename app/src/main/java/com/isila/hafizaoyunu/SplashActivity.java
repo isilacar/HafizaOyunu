@@ -21,7 +21,7 @@ Context context=this;
 
         //GoogleAdmob da ki hafıza Oyunununadmob idsi
         MobileAds.initialize(context,
-                "ca-app-pub-6855653886010075~8640001602");
+                "ca-app-pub-5037089565212879~8312246236");
 
         new SayfaGecisi().start();
 
