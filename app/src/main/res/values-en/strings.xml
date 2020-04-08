@@ -11,6 +11,11 @@
 
     <string name="toastmesaj"> Welcome to the Memory Game</string>
 
+    <string name="toastcikis">EXIT</string>
+    <string name="toasteminmi">Are you sure for exit?</string>
+    <string name="toastEvet">YES</string>
+    <string name="toastHayir">NO</string>
+
     <string name="splashbaslik">DO YOU BELIEVE IN YOUR MIND?</string>
     <string name="splashaltbaslik">Memory Game</string>
     <string name="splasheglenirken">Strengthen Your Memory While Having Fun!</string>

@@ -1,6 +1,6 @@
 package com.isila.hafizaoyunu;
 
-import android.app.AlertDialog;
+import android.app.*;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -135,13 +135,9 @@ public class AnaEkran extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            //aşağısı yeni alan,değişiklik yap
-            LayoutInflater layoutInflater = getLayoutInflater();
-            View view3 = layoutInflater.inflate(R.layout.cikisstoast,
-                    (ViewGroup) findViewById(R.id.cikisana));
-            TextView cikiss=view3.findViewById(R.id.cikis);
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            showMyCustomAlertDialog();
+          /*  AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
             builder.setTitle("ÇIKIŞ");
             builder.setMessage("Çıkmak istediğinize eminmisiniz?");
@@ -164,7 +160,7 @@ public class AnaEkran extends AppCompatActivity {
                 }
             });
             builder.create().show();
-
+*/
         }
 
         return super.onKeyDown(keyCode, event);
@@ -185,4 +181,43 @@ public class AnaEkran extends AppCompatActivity {
 
     }
 
+    public void showMyCustomAlertDialog() {
+
+        // dialog nesnesi oluştur ve layout dosyasına bağlan
+        final Dialog dialog = new Dialog(context);
+        dialog.setContentView(R.layout.cikisstoast);
+
+        // custom dialog elemanlarını tanımla - text, image ve button
+        Button btnEvet = (Button) dialog.findViewById(R.id.tevet);
+        Button btnHayir = (Button) dialog.findViewById(R.id.thayir);
+      //  TextView tvBaslik = (TextView) dialog.findViewById(R.id.textview_baslik);
+
+
+
+        // tamam butonunun tıklanma olayları
+        btnEvet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+
+                int pid = android.os.Process.myPid();
+                android.os.Process.killProcess(pid);
+            }
+        });
+        // iptal butonunun tıklanma olayları
+        btnHayir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+
+            }
+        });
+
+        dialog.show();
+    }
 }
+
+

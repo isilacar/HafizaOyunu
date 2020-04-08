@@ -1,6 +1,6 @@
 package com.isila.hafizaoyunu;
 
-import android.app.AlertDialog;
+import android.app.*;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -27,8 +27,8 @@ public class SureBitti extends AppCompatActivity {
     Button btntekraroyna;
     MediaPlayer butonclicksure;
     //test ad unit ID
-  //  String tamEkranAd = "ca-app-pub-5037089565212879/7301103816";
- //   private InterstitialAd interstitialAd;
+    //  String tamEkranAd = "ca-app-pub-5037089565212879/7301103816";
+    //   private InterstitialAd interstitialAd;
     SharedPreferences sp;
 
 
@@ -38,13 +38,13 @@ public class SureBitti extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_sure_bitti);
 
-        sp= PreferenceManager.getDefaultSharedPreferences(context);
+        sp = PreferenceManager.getDefaultSharedPreferences(context);
 
 
         textViewsure = findViewById(R.id.surebitti);
-      //  SharedPref sharedPref = new SharedPref();
+        //  SharedPref sharedPref = new SharedPref();
         String isim = sp.getString("kullaniciadi", null);
-        textViewsure.setText(isim.toUpperCase()+" ");
+        textViewsure.setText(isim.toUpperCase() + " ");
         btntekraroyna = findViewById(R.id.tekraroyna);
 
         butonclicksure = MediaPlayer.create(this, R.raw.butonses);
@@ -98,31 +98,47 @@ public class SureBitti extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            builder.setTitle("ÇIKIŞ");
-            builder.setMessage("Çıkmak istediğinize eminmisiniz?");
-            builder.setPositiveButton("EVET", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    Intent intent = new Intent(Intent.ACTION_MAIN);
-                    intent.addCategory(Intent.CATEGORY_HOME);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-
-                    int pid = android.os.Process.myPid();
-                    android.os.Process.killProcess(pid);
-                }
-            });
-            builder.setNegativeButton("HAYIR", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    dialogInterface.cancel();
-                }
-            });
-            builder.create().show();
+            showMyCustomAlertDialog();
 
         }
 
         return super.onKeyDown(keyCode, event);
+    }
+
+    public void showMyCustomAlertDialog() {
+
+        // dialog nesnesi oluştur ve layout dosyasına bağlan
+        final Dialog dialog = new Dialog(context);
+        dialog.setContentView(R.layout.cikisstoast);
+
+        // custom dialog elemanlarını tanımla - text, image ve button
+        Button btnEvet = (Button) dialog.findViewById(R.id.tevet);
+        Button btnHayir = (Button) dialog.findViewById(R.id.thayir);
+        //  TextView tvBaslik = (TextView) dialog.findViewById(R.id.textview_baslik);
+
+
+        // tamam butonunun tıklanma olayları
+        btnEvet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+
+                int pid = android.os.Process.myPid();
+                android.os.Process.killProcess(pid);
+            }
+        });
+        // iptal butonunun tıklanma olayları
+        btnHayir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+
+            }
+        });
+
+        dialog.show();
     }
 }

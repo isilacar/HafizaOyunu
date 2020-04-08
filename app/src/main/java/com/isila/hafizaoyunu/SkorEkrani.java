@@ -1,6 +1,6 @@
 package com.isila.hafizaoyunu;
 
-import android.app.AlertDialog;
+import android.app.*;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -23,13 +23,13 @@ import com.google.android.gms.ads.InterstitialAd;
 
 public class SkorEkrani extends AppCompatActivity {
 
-    TextView hatat,hatat2;
+    TextView hatat, hatat2;
     Button button;
     private AdView mAdView;
     Context context = this;
-  //  String tamEkranAd = "ca-app-pub-5037089565212879/7301103816";
+    //  String tamEkranAd = "ca-app-pub-5037089565212879/7301103816";
     MediaPlayer butonclick3;
- //   private InterstitialAd interstitialAd;
+    //   private InterstitialAd interstitialAd;
     SharedPreferences sp;
 
 
@@ -53,7 +53,7 @@ public class SkorEkrani extends AppCompatActivity {
 
         butonclick3 = MediaPlayer.create(this, R.raw.butonses);
         hatat = findViewById(R.id.hata);
-        hatat2=findViewById(R.id.hata2);
+        hatat2 = findViewById(R.id.hata2);
         button = findViewById(R.id.button);
 
         Intent i = getIntent();
@@ -63,7 +63,7 @@ public class SkorEkrani extends AppCompatActivity {
         //   SharedPref sharedPref = new SharedPref();
         final String isim = sp.getString("kullaniciadi", null);
 
-        hatat.setText(isim.toUpperCase() + ", " + hata+" ");
+        hatat.setText(isim.toUpperCase() + ", " + hata + " ");
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,32 +103,47 @@ public class SkorEkrani extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            builder.setTitle("ÇIKIŞ");
-            builder.setMessage("Çıkmak istediğinize eminmisiniz?");
-            builder.setPositiveButton("EVET", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    Intent intent = new Intent(Intent.ACTION_MAIN);
-                    intent.addCategory(Intent.CATEGORY_HOME);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-
-                    int pid = android.os.Process.myPid();
-                    android.os.Process.killProcess(pid);
-
-                }
-            });
-            builder.setNegativeButton("HAYIR", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    dialogInterface.cancel();
-                }
-            });
-            builder.create().show();
+            showMyCustomAlertDialog();
 
         }
 
         return super.onKeyDown(keyCode, event);
+    }
+
+    public void showMyCustomAlertDialog() {
+
+        // dialog nesnesi oluştur ve layout dosyasına bağlan
+        final Dialog dialog = new Dialog(context);
+        dialog.setContentView(R.layout.cikisstoast);
+
+        // custom dialog elemanlarını tanımla - text, image ve button
+        Button btnEvet = (Button) dialog.findViewById(R.id.tevet);
+        Button btnHayir = (Button) dialog.findViewById(R.id.thayir);
+        //  TextView tvBaslik = (TextView) dialog.findViewById(R.id.textview_baslik);
+
+
+        // tamam butonunun tıklanma olayları
+        btnEvet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+
+                int pid = android.os.Process.myPid();
+                android.os.Process.killProcess(pid);
+            }
+        });
+        // iptal butonunun tıklanma olayları
+        btnHayir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+
+            }
+        });
+
+        dialog.show();
     }
 }

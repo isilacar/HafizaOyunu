@@ -14,6 +14,8 @@
 
     <string name="toastcikis">ÇIKIŞ</string>
     <string name="toasteminmi">Çıkmak istediğinize emin misiniz?</string>
+    <string name="toastEvet">EVET</string>
+    <string name="toastHayir">HAYIR</string>
 
 
     <string name="splashbaslik">HAFIZANA GÜVENİYOR MUSUN?</string>
