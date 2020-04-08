@@ -8,7 +8,7 @@ android {
         hafizaOyunu {
             keyAlias 'hafizaoyunu'
             keyPassword '13101986'
-            storeFile file('C:/Users/isila/Desktop/hafizaOyunuAPK/hafizaoyunu.jks')
+            storeFile file('C:/Users/isila/Desktop/KOD/hafizaOyunuAPK/hafizaoyunu.jks')
             storePassword '13101986'
         }
     }
@@ -18,8 +18,8 @@ android {
         applicationId 'com.isila.hafizaoyunu'
         minSdkVersion 15
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -39,10 +39,9 @@ dependencies {
     implementation 'com.android.support:support-vector-drawable:28.0.0'
     implementation 'com.android.support:support-media-compat:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.google.firebase:firebase-ads:17.0.0'
-
 
 }

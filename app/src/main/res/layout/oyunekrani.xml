@@ -10,36 +10,31 @@
    android:background="@drawable/yapraklar"
     tools:context=".OyunEkrani">
   <!--  android:background="#0E3C03"-->
-    <TextView
-        android:id="@+id/kalansure"
-        android:gravity="center_horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="32dp"
-        android:text="jhg"
-        android:textColor="#BF360C"
-        android:textSize="30sp"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintHorizontal_bias="0.447"
-        ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toTopOf="parent" />
 
   <TextView
-      android:id="@+id/textHata"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="164dp"
-      android:layout_marginLeft="164dp"
-      android:layout_marginTop="36dp"
+          android:id="@+id/kalansure"
+          android:gravity="center_horizontal"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="60dp"
+          android:textColor="#BF360C"
+          android:textSize="30sp"
+          android:text=""
+          ads:layout_constraintEnd_toEndOf="parent"
+          ads:layout_constraintTop_toTopOf="parent"
+          ads:layout_constraintStart_toEndOf="@+id/textView6" ads:layout_constraintHorizontal_bias="0.0"/>
+  <TextView
+          android:id="@+id/textHata"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="236dp"
+          android:layout_marginLeft="236dp"
+          android:layout_marginTop="32dp"
 
-      android:text="HATA : "
-      android:textColor="#1F8126"
-      android:textSize="24sp"
-      ads:layout_constraintTop_toBottomOf="@+id/kalansure"
-      app:layout_constraintStart_toStartOf="parent" />
-
+          android:textColor="#1F8126"
+          android:textSize="24sp"
+          ads:layout_constraintTop_toBottomOf="@+id/kalansure"
+          app:layout_constraintStart_toStartOf="parent"/>
   <GridLayout
         android:id="@+id/kartlar"
         android:layout_width="wrap_content"
@@ -68,8 +63,21 @@
       ads:adUnitId="@string/banner_ad_unit_id"
       app:layout_constraintBottom_toBottomOf="parent"
       tools:layout_editor_absoluteX="112dp"></com.google.android.gms.ads.AdView>
-
-
+  <TextView
+          android:text="@string/oyunekraniKalansure"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/textView6" ads:layout_constraintTop_toTopOf="parent" android:layout_marginTop="60dp"
+          android:textColor="#BF360C" android:textSize="30sp"
+          ads:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="95dp"
+          android:layout_marginStart="95dp"/>
+  <TextView
+          android:text="@string/oyunekraniHata"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/textView7" ads:layout_constraintEnd_toStartOf="@+id/textHata" android:layout_marginTop="32dp"
+          ads:layout_constraintTop_toBottomOf="@+id/textView6" android:textColor="#1F8126" android:textSize="24sp"
+          android:layout_marginEnd="12dp" android:layout_marginRight="12dp"/>
 
 
 </android.support.constraint.ConstraintLayout>

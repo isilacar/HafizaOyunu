@@ -7,19 +7,19 @@
     tools:context=".SplashActivity">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="210dp"
-        android:background="#FDD501"
-        android:gravity="center"
-        app:layout_constraintHorizontal_weight="0"
-        android:text="HAFIZANA GÜVENİYOR MUSUN?"
-        android:textColor="#0091EA"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        app:layout_constraintVertical_weight="0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:background="#FDD501"
+            android:gravity="center"
+            app:layout_constraintHorizontal_weight="0"
+            android:text="@string/splashbaslik"
+            android:textColor="#0091EA"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintVertical_weight="0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageView
         android:id="@+id/img"
@@ -43,38 +43,38 @@
         app:layout_constraintVertical_weight="0">
 
         <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:gravity="center"
-            android:text="Hafıza Oyunu"
-            android:textColor="#3C3F41"
-            android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:gravity="center"
+                android:text="@string/splashaltbaslik"
+                android:textColor="#3C3F41"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView3"
-            android:layout_marginTop="24dp"
-            android:gravity="center"
-            android:text="Eğlenirken Hafızanı Kuvvetlendir!"
-            android:textColor="#4F21AC"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView3"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:text="@string/splasheglenirken"
+                android:textColor="#4F21AC"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"/>
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView4"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:text="Prepared By Işıl ACAR"
-            android:textColor="#AC51DA"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView4"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:text="@string/splashhazirlayan"
+                android:textColor="#AC51DA"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"/>
     </RelativeLayout>
 
 

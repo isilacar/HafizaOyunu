@@ -1,15 +1,41 @@
 <resources>
     <string name="app_name">Hafıza Oyunu</string>
-    <string name="merhaba">Merhaba.Lütfen isminizi yazıp Başla butonuna tıklayınız..</string>
-    <string name="uyari">LÜTFEN AŞAĞIDAKİ GEREKLİ ALANLARI DOLDURUN..</string>
-    <string name="isim">Lütfen isminizi yazınız..</string>
-    <string name="soyisim">Lütfen soyadınızı giriniz..</string>
+<!--    <string name="merhaba">Merhaba.Lütfen isminizi yazıp Başla butonuna tıklayınız..</string>-->
+<!--    <string name="uyari">LÜTFEN AŞAĞIDAKİ GEREKLİ ALANLARI DOLDURUN..</string>-->
     <string name="banner_ad_unit_id">ca-app-pub-5037089565212879/2946925839</string>
 
-    <string name="sayiYasak">abcçdefgğhıijklmnoöprsştuüvyzqwxABCÇDEFGĞHIİJKLMNOÖPRSŞTU
-        ÜVYZQWX</string>
     <string name="bilgi">     Sonbahar temalı bu oyunumuzda 4 sütun, 4 kolondan oluşan toplamda
         16 kartımız var. Herbir karttan ikişer tane bulunuyor. Sizin yapmanız gereken bu
         çiftleri bulmak ve eşleştirmek. Unutmayın, zamana karşı yarışıyorsunuz. Bol Şanslar
         ..</string>
+    <string name="bilgiButon">ANA EKRAN</string>
+
+    <string name="toastmesaj"> Merhaba.Hafıza Oyununa Hoşgeldin..</string>
+
+    <string name="toastcikis">ÇIKIŞ</string>
+    <string name="toasteminmi">Çıkmak istediğinize emin misiniz?</string>
+
+
+    <string name="splashbaslik">HAFIZANA GÜVENİYOR MUSUN?</string>
+    <string name="splashaltbaslik">Hafıza Oyunu</string>
+    <string name="splasheglenirken">Eğlenirken Hafızanı Kuvvetlendir!</string>
+    <string name="splashhazirlayan">By Işıl ACAR</string>
+
+    <string name="anaekranKullanici"> Kullanıcı Adı</string>
+    <string name="anaekranBasla">OYUNA BAŞLA</string>
+    <string name="anaekranBilgi">NASIL OYNANIR</string>
+    <string name="anaekranBosisim">İsim alanı boş bırakılamaz..</string>
+
+    <string name="oyunekraniHata">HATA : </string>
+    <string name="oyunekraniKalansure">Kalan Süre : </string>
+
+    <string name="kaybettinButon">TEKRAR OYNA</string>
+    <string name="kaybettinBaslik"> SÜREN BİTTİ. OYUNU TAMAMLAYAMADIN!</string>
+
+    <string name="kazandinBaslik"> HATA İLE OYUNU BİTİRDİN. TEBRİKLER..</string>
+    <string name="kazandinButon">TEKRAR OYNA</string>
+
+<!--    <string name="sayiYasak">abcçdefgğhıijklmnoöprsştuüvyzqwxABCÇDEFGĞHIİJKLMNOÖPRSŞTU-->
+<!--        ÜVYZQWX</string>-->
+
 </resources>

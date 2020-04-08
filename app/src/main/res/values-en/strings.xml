@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Memory Game</string>
+<!--    <string name="merhaba">Merhaba.Lütfen isminizi yazıp Başla butonuna tıklayınız..</string>-->
+<!--    <string name="uyari">LÜTFEN AŞAĞIDAKİ GEREKLİ ALANLARI DOLDURUN..</string>-->
+    <string name="banner_ad_unit_id">ca-app-pub-5037089565212879/2946925839</string>
+
+    <string name="bilgi">     In this autumn themed game, we have 16 cards. There are two of each card. All you have
+        to do is find and match these pairs. But do not forget, you are racing againts the time. Good Luck..
+    </string>
+    <string name="bilgiButon">MAIN</string>
+
+    <string name="toastmesaj"> Welcome to the Memory Game</string>
+
+    <string name="splashbaslik">DO YOU BELIEVE IN YOUR MIND?</string>
+    <string name="splashaltbaslik">Memory Game</string>
+    <string name="splasheglenirken">Strengthen Your Memory While Having Fun!</string>
+    <string name="splashhazirlayan">Prepared By Işıl ACAR</string>
+
+    <string name="anaekranKullanici"> User Name</string>
+    <string name="anaekranBasla">START</string>
+    <string name="anaekranBilgi">ABOUT</string>
+    <string name="anaekranBosisim">You have to fill the user name..</string>
+
+    <string name="oyunekraniHata">MISTAKES : </string>
+    <string name="oyunekraniKalansure">Time : </string>
+
+    <string name="kaybettinButon">AGAIN</string>
+    <string name="kaybettinBaslik"> TIME OUT! YOU ARE NOT COMPLETE THE GAME!</string>
+
+    <string name="kazandinBaslik"> MISTAKES YOU DID.. CONGRATULATIONS..</string>
+    <string name="kazandinButon">AGAIN</string>
+
+
+<!--    <string name="sayiYasak">abcçdefgğhıijklmnoöprsştuüvyzqwxABCÇDEFGĞHIİJKLMNOÖPRSŞTU
+        ÜVYZQWX</string>-->
+
+</resources>

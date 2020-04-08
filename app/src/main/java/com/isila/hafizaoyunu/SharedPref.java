@@ -2,8 +2,6 @@ package com.isila.hafizaoyunu;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
-import android.preference.PreferenceManager;
 
 public class SharedPref {
     static final String DOSYA_ISMI = "SignUp";

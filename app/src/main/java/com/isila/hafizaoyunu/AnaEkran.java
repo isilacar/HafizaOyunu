@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -34,7 +33,8 @@ public class AnaEkran extends AppCompatActivity {
     Context context = this;
     Button btngiris, btnbilgi;
     EditText etkullanici;
-    String tamEkranAd = "ca-app-pub-5037089565212879/7301103816";
+    TextView isimToast;
+   String tamEkranAd = "ca-app-pub-5037089565212879/7301103816";
     private InterstitialAd interstitialAd;
     SharedPreferences sp;
     SharedPreferences.Editor spe;
@@ -47,8 +47,13 @@ public class AnaEkran extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.anaekran);
 
-
         interstitialAd = new InterstitialAd(context);
+        interstitialAd.setAdUnitId(tamEkranAd);
+        final AdRequest adRequest2 = new AdRequest.Builder().build();
+        interstitialAd.loadAd(adRequest2);
+
+
+     /*   interstitialAd = new InterstitialAd(context);
         interstitialAd.setAdUnitId(tamEkranAd);
         final AdRequest adRequest2 = new AdRequest.Builder().build();
         interstitialAd.loadAd(adRequest2);
@@ -59,7 +64,7 @@ public class AnaEkran extends AppCompatActivity {
             }
         });
 
-
+*/
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -76,13 +81,22 @@ public class AnaEkran extends AppCompatActivity {
         btngiris = findViewById(R.id.btngiris);
         btnbilgi = findViewById(R.id.btnbilgi);
 
+
         btngiris.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 butonClick2.start();
                 if (TextUtils.isEmpty(etkullanici.getText().toString())) {
-                    Toast.makeText(context, "İsim alanı boş bırakılamaz..", Toast.LENGTH_SHORT).show();
+                    LayoutInflater layoutInflater = getLayoutInflater();
+                    View view2 = layoutInflater.inflate(R.layout.isimalani_toast,
+                            (ViewGroup) findViewById(R.id.toast_isimalani));
+                    Toast toast = new Toast(context);
+                //    toast.setGravity(Gravity.BOTTOM, 0, 0);
+                    toast.setDuration(Toast.LENGTH_LONG);
+                    toast.setView(view2);
+                    toast.show();
+                  //  Toast.makeText(context, "İsim alanı boş bırakılamaz..", Toast.LENGTH_SHORT).show();
                 } else {
                    /* sharedPref.saveString(context, "kullaniciadi",
                             etkullanici.getText().toString());*/
@@ -98,8 +112,20 @@ public class AnaEkran extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 butonClick2.start();
-                Intent i = new Intent(AnaEkran.this, Bilgi.class);
-                startActivity(i);
+              final  Intent i = new Intent(AnaEkran.this, Bilgi.class);
+                if (interstitialAd.isLoaded()) {
+                    interstitialAd.show();
+                } else {
+                    startActivity(i);
+                }
+                interstitialAd.setAdListener(new AdListener() {
+                    @Override
+                    public void onAdClosed() {
+                        super.onAdClosed();
+                        interstitialAd.loadAd(adRequest2);
+                        startActivity(i);
+                    }
+                });
             }
         });
 
@@ -109,7 +135,14 @@ public class AnaEkran extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
+            //aşağısı yeni alan,değişiklik yap
+            LayoutInflater layoutInflater = getLayoutInflater();
+            View view3 = layoutInflater.inflate(R.layout.cikisstoast,
+                    (ViewGroup) findViewById(R.id.cikisana));
+            TextView cikiss=view3.findViewById(R.id.cikis);
+
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
             builder.setTitle("ÇIKIŞ");
             builder.setMessage("Çıkmak istediğinize eminmisiniz?");
             builder.setPositiveButton("EVET", new DialogInterface.OnClickListener() {
@@ -142,8 +175,7 @@ public class AnaEkran extends AppCompatActivity {
         View view = layoutInflater.inflate(R.layout.custom_toast,
                 (ViewGroup) findViewById(R.id.toast_root));
         TextView toastt = view.findViewById(R.id.toasttext);
-        toastt.setText("Merhaba " + etkullanici.getText().toString() + ".Haf" +
-                "ıza Oyununa Hoşgeldin..");
+        toastt.setText( etkullanici.getText().toString().toUpperCase()+" ");
         Toast toast = new Toast(context);
 
         toast.setGravity(Gravity.TOP, 0, 0);

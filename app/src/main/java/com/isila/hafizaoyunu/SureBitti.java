@@ -27,8 +27,8 @@ public class SureBitti extends AppCompatActivity {
     Button btntekraroyna;
     MediaPlayer butonclicksure;
     //test ad unit ID
-    String tamEkranAd = "ca-app-pub-5037089565212879/7301103816";
-    private InterstitialAd interstitialAd;
+  //  String tamEkranAd = "ca-app-pub-5037089565212879/7301103816";
+ //   private InterstitialAd interstitialAd;
     SharedPreferences sp;
 
 
@@ -44,15 +44,15 @@ public class SureBitti extends AppCompatActivity {
         textViewsure = findViewById(R.id.surebitti);
       //  SharedPref sharedPref = new SharedPref();
         String isim = sp.getString("kullaniciadi", null);
-        textViewsure.setText(isim.toUpperCase() + ", SÜREN BİTTİ. OYUNU TAMAMLAYAMADIN..");
+        textViewsure.setText(isim.toUpperCase()+" ");
         btntekraroyna = findViewById(R.id.tekraroyna);
 
         butonclicksure = MediaPlayer.create(this, R.raw.butonses);
 
-        interstitialAd = new InterstitialAd(context);
+       /* interstitialAd = new InterstitialAd(context);
         interstitialAd.setAdUnitId(tamEkranAd);
         final AdRequest adRequest2 = new AdRequest.Builder().build();
-        interstitialAd.loadAd(adRequest2);
+        interstitialAd.loadAd(adRequest2);*/
 
         mAdView = findViewById(R.id.adViewsurebitti);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -64,13 +64,15 @@ public class SureBitti extends AppCompatActivity {
             public void onClick(View view) {
                 butonclicksure.start();
                 final Intent i = new Intent(SureBitti.this, OyunEkrani.class);
-                if (interstitialAd.isLoaded()) {
+                startActivity(i);
+
+              /*  if (interstitialAd.isLoaded()) {
                     interstitialAd.show();
                 } else {
                     startActivity(i);
-                }
+                }*/
 
-                interstitialAd.setAdListener(new AdListener() {
+               /* interstitialAd.setAdListener(new AdListener() {
 
                     @Override
                     public void onAdClosed() {
@@ -79,7 +81,7 @@ public class SureBitti extends AppCompatActivity {
                         startActivity(i);
                     }
                 });
-
+*/
 
             }
         });

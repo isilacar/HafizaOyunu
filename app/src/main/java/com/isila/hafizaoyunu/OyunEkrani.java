@@ -4,13 +4,10 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.os.Vibrator;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -51,7 +48,6 @@ public class OyunEkrani extends AppCompatActivity {
         interstitialAd.setAdUnitId(tamEkranAd);
 
 
-
         tvkalansure = findViewById(R.id.kalansure);
         butonClick = MediaPlayer.create(this, R.raw.btnclick);
         eslesdi = MediaPlayer.create(this, R.raw.eslesdi2);
@@ -61,7 +57,6 @@ public class OyunEkrani extends AppCompatActivity {
         //tam ekran reklam
         final AdRequest adRequest2 = new AdRequest.Builder().build();
         interstitialAd.loadAd(adRequest2);
-
 
 
         GridLayout gl = findViewById(R.id.kartlar);
@@ -75,7 +70,7 @@ public class OyunEkrani extends AppCompatActivity {
             @Override
             public void onTick(long l) {
 
-                tvkalansure.setText("Kalan Süre = " + l / 1000);
+                tvkalansure.setText(" "+l / 1000);
             }
 
             @Override
@@ -133,7 +128,7 @@ public class OyunEkrani extends AppCompatActivity {
                                 timer.cancel();
                                 final Intent i2 = new Intent(OyunEkrani.this, SkorEkrani.class);
                                 i2.putExtra("hatalar", hata);
-                             // i2.putExtra("isim", s);
+                                // i2.putExtra("isim", s);
                                 if (interstitialAd.isLoaded()) {
                                     interstitialAd.show();
                                 } else {
@@ -165,7 +160,7 @@ public class OyunEkrani extends AppCompatActivity {
                             sonKart = 0;
                             hata++;
                             TextView tvHata = findViewById(R.id.textHata);
-                            tvHata.setText("HATA : " + hata);
+                            tvHata.setText(""+hata);
 
                         }
                     } else {

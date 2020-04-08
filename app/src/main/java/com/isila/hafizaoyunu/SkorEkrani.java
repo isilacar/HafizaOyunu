@@ -1,7 +1,6 @@
 package com.isila.hafizaoyunu;
 
 import android.app.AlertDialog;
-import android.app.Presentation;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,18 +20,16 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
-import java.util.prefs.PreferenceChangeEvent;
-
 
 public class SkorEkrani extends AppCompatActivity {
 
-    TextView hatat;
+    TextView hatat,hatat2;
     Button button;
     private AdView mAdView;
     Context context = this;
-    String tamEkranAd = "ca-app-pub-5037089565212879/7301103816";
+  //  String tamEkranAd = "ca-app-pub-5037089565212879/7301103816";
     MediaPlayer butonclick3;
-    private InterstitialAd interstitialAd;
+ //   private InterstitialAd interstitialAd;
     SharedPreferences sp;
 
 
@@ -42,13 +39,13 @@ public class SkorEkrani extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.skorekrani);
 
-        sp= PreferenceManager.getDefaultSharedPreferences(context);
+        sp = PreferenceManager.getDefaultSharedPreferences(context);
 
 
-        interstitialAd = new InterstitialAd(context);
+      /*  interstitialAd = new InterstitialAd(context);
         interstitialAd.setAdUnitId(tamEkranAd);
         final AdRequest adRequest2 = new AdRequest.Builder().build();
-        interstitialAd.loadAd(adRequest2);
+        interstitialAd.loadAd(adRequest2);*/
 
         mAdView = findViewById(R.id.adViewskor);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -56,29 +53,32 @@ public class SkorEkrani extends AppCompatActivity {
 
         butonclick3 = MediaPlayer.create(this, R.raw.butonses);
         hatat = findViewById(R.id.hata);
+        hatat2=findViewById(R.id.hata2);
         button = findViewById(R.id.button);
 
         Intent i = getIntent();
 
         int hata = i.getIntExtra("hatalar", 0);
         //  String isim=i.getStringExtra("isim");
-     //   SharedPref sharedPref = new SharedPref();
+        //   SharedPref sharedPref = new SharedPref();
         final String isim = sp.getString("kullaniciadi", null);
 
-        hatat.setText(isim.toUpperCase() + ", " + hata + " HATA İLE OYUNU BİTİRDİN. TEBRİKLER..");
+        hatat.setText(isim.toUpperCase() + ", " + hata+" ");
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 butonclick3.start();
                 final Intent i = new Intent(SkorEkrani.this, OyunEkrani.class);
+                startActivity(i);
+           /*
                 if (interstitialAd.isLoaded()) {
                     interstitialAd.show();
                 } else {
                     startActivity(i);
                 }
-
-                interstitialAd.setAdListener(new AdListener() {
+*/
+           /*     interstitialAd.setAdListener(new AdListener() {
                     @Override
                     public void onAdClosed() {
                         super.onAdClosed();
@@ -86,7 +86,7 @@ public class SkorEkrani extends AppCompatActivity {
                         startActivity(i);
                     }
                 });
-
+*/
 
             }
         });

@@ -19,11 +19,15 @@
         />
 
     <TextView
-        android:id="@+id/toasttext"
-        android:layout_width="match_parent"
-        android:text="Merhaba Hafıza Oyununa Hoşgeldin...."
-        android:layout_height="wrap_content"
-        android:textColor="#6200EA"
-        android:textSize="16dp" />
+            android:id="@+id/toasttext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#6200EA"
+            android:textSize="16dp"/>
+    <TextView
+            android:text="@string/toastmesaj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView" android:layout_weight="1"
+            android:textColor="#6200EA" android:textSize="16sp"/>
 
 </LinearLayout>

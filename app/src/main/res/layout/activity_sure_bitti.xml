@@ -10,36 +10,44 @@
     <!-- android:background="@drawable/surebittigradient"-->
 
     <TextView
-        android:id="@+id/surebitti"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="104dp"
-        android:gravity="center"
-        android:text="JLJJLFJ JMGFJLGFMJ"
-        android:textColor="#F57F17"
-        android:textSize="25sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/surebitti"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:text="JLJJLF"
+            android:textColor="#F57F17"
+            android:textSize="25sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            ads:layout_constraintBottom_toTopOf="@+id/surebitti2" ads:layout_constraintVertical_bias="0.697"/>
+    <TextView
+            android:text="@string/kaybettinBaslik"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/surebitti2" ads:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="120dp"
+            android:textColor="#F57F17" android:textSize="25sp"
+            android:textStyle="bold|italic"
+            android:gravity="center"/>
 
     <Button
-        android:id="@+id/tekraroyna"
-        android:layout_width="192dp"
-        android:layout_height="58dp"
-        android:layout_below="@+id/surebitti"
-        android:layout_marginStart="108dp"
-        android:layout_marginLeft="108dp"
-        android:layout_marginTop="368dp"
-        android:background="@drawable/tekraroyna"
-        android:text="TEKRAR OYNA"
-        android:textColor="#FFF176"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/surebitti" />
-
+            android:id="@+id/tekraroyna"
+            android:layout_width="192dp"
+            android:layout_height="58dp"
+            android:layout_below="@+id/surebitti"
+            android:layout_marginStart="108dp"
+            android:layout_marginLeft="108dp"
+            android:layout_marginTop="408dp"
+            android:background="@drawable/tekraroyna"
+            android:text="@string/kaybettinButon"
+            android:textColor="#FFF176"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/surebitti"/>
     <com.google.android.gms.ads.AdView
         android:id="@+id/adViewsurebitti"
         android:layout_width="match_parent"
@@ -51,5 +59,6 @@
         ads:layout_constraintEnd_toEndOf="parent"
         ads:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"></com.google.android.gms.ads.AdView>
+
 
 </android.support.constraint.ConstraintLayout>
