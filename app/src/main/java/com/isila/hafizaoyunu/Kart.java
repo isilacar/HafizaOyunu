@@ -2,7 +2,7 @@ package com.isila.hafizaoyunu;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.AppCompatDrawableManager;
+import androidx.appcompat.widget.AppCompatDrawableManager;
 import android.widget.Button;
 
 //Kart sınıfımız buton özelliği taşıyacağı için extends button dedik
