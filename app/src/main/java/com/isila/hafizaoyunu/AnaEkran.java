@@ -24,6 +24,7 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.material.textfield.TextInputEditText;
 
 
 public class AnaEkran extends AppCompatActivity {
@@ -31,7 +32,7 @@ public class AnaEkran extends AppCompatActivity {
     MediaPlayer butonClick2;
     Context context = this;
     Button btngiris, btnbilgi;
-    EditText etkullanici;
+    TextInputEditText etkullanici;
     TextView isimToast;
    String tamEkranAd = "ca-app-pub-5037089565212879/7301103816";
     private InterstitialAd interstitialAd;
