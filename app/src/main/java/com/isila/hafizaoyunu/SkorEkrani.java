@@ -96,15 +96,9 @@ public class SkorEkrani extends AppCompatActivity {
         finish();
     }
 
-
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            showMyCustomAlertDialog();
-
-        }
-
-        return super.onKeyDown(keyCode, event);
+    public void onBackPressed() {
+        showMyCustomAlertDialog();
     }
 
     public void showMyCustomAlertDialog() {

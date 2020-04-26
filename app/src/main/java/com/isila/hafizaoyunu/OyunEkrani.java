@@ -68,7 +68,7 @@ public class OyunEkrani extends AppCompatActivity {
             @Override
             public void onTick(long l) {
 
-                tvkalansure.setText(" "+l / 1000);
+                tvkalansure.setText(" " + l / 1000);
             }
 
             @Override
@@ -158,7 +158,7 @@ public class OyunEkrani extends AppCompatActivity {
                             sonKart = 0;
                             hata++;
                             TextView tvHata = findViewById(R.id.textHata);
-                            tvHata.setText(""+hata);
+                            tvHata.setText("" + hata);
 
                         }
                     } else {
@@ -192,15 +192,9 @@ public class OyunEkrani extends AppCompatActivity {
 
     }
 
-
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-           showMyCustomAlertDialog();
-
-        }
-
-        return super.onKeyDown(keyCode, event);
+    public void onBackPressed() {
+        showMyCustomAlertDialog();
     }
 
     public void showMyCustomAlertDialog() {
@@ -213,7 +207,6 @@ public class OyunEkrani extends AppCompatActivity {
         Button btnEvet = (Button) dialog.findViewById(R.id.tevet);
         Button btnHayir = (Button) dialog.findViewById(R.id.thayir);
         //  TextView tvBaslik = (TextView) dialog.findViewById(R.id.textview_baslik);
-
 
 
         // tamam butonunun tıklanma olayları

@@ -15,22 +15,23 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 public class Bilgi extends AppCompatActivity {
-Button btnanaekran;
-Context context=this;
-MediaPlayer btnclickk;
-private AdView mAdView;
+    Button btnanaekran;
+    Context context = this;
+    MediaPlayer btnclickk;
+    private AdView mAdView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_bilgi);
-        btnanaekran=findViewById(R.id.bilgiana);
-        btnclickk=MediaPlayer.create(this, R.raw.butonses);
+        btnanaekran = findViewById(R.id.bilgiana);
+        btnclickk = MediaPlayer.create(this, R.raw.butonses);
         btnanaekran.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 btnclickk.start();
-                Intent i=new Intent(Bilgi.this,AnaEkran.class);
+                Intent i = new Intent(Bilgi.this, AnaEkran.class);
                 startActivity(i);
             }
         });
@@ -41,14 +42,10 @@ private AdView mAdView;
     }
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-         showMyCustomAlertDialog();
-
-        }
-
-        return super.onKeyDown(keyCode, event);
+    public void onBackPressed() {
+        showMyCustomAlertDialog();
     }
+
     public void showMyCustomAlertDialog() {
 
         // dialog nesnesi oluştur ve layout dosyasına bağlan
@@ -59,7 +56,6 @@ private AdView mAdView;
         Button btnEvet = (Button) dialog.findViewById(R.id.tevet);
         Button btnHayir = (Button) dialog.findViewById(R.id.thayir);
         //  TextView tvBaslik = (TextView) dialog.findViewById(R.id.textview_baslik);
-
 
 
         // tamam butonunun tıklanma olayları

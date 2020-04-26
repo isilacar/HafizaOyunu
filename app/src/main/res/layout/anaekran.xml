@@ -11,9 +11,10 @@
     <com.google.android.material.textfield.TextInputLayout
             android:layout_width="304dp"
             android:layout_height="wrap_content" ads:layout_constraintStart_toStartOf="parent"
-            ads:layout_constraintEnd_toEndOf="parent" ads:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="84dp" android:id="@+id/textInputLayout2"
-            ads:layout_constraintHorizontal_bias="0.5">
+            ads:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/textInputLayout2"
+            ads:layout_constraintHorizontal_bias="0.5" ads:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="98dp">
 
         <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
