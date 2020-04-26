@@ -32,7 +32,6 @@ public class SureBitti extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_sure_bitti);
 
         sp = PreferenceManager.getDefaultSharedPreferences(context);
@@ -46,11 +45,6 @@ public class SureBitti extends AppCompatActivity {
 
         butonclicksure = MediaPlayer.create(this, R.raw.butonses);
 
-       /* interstitialAd = new InterstitialAd(context);
-        interstitialAd.setAdUnitId(tamEkranAd);
-        final AdRequest adRequest2 = new AdRequest.Builder().build();
-        interstitialAd.loadAd(adRequest2);*/
-
         mAdView = findViewById(R.id.adViewsurebitti);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -62,23 +56,6 @@ public class SureBitti extends AppCompatActivity {
                 butonclicksure.start();
                 final Intent i = new Intent(SureBitti.this, OyunEkrani.class);
                 startActivity(i);
-
-              /*  if (interstitialAd.isLoaded()) {
-                    interstitialAd.show();
-                } else {
-                    startActivity(i);
-                }*/
-
-               /* interstitialAd.setAdListener(new AdListener() {
-
-                    @Override
-                    public void onAdClosed() {
-                        super.onAdClosed();
-                        interstitialAd.loadAd(adRequest2);
-                        startActivity(i);
-                    }
-                });
-*/
 
             }
         });

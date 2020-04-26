@@ -39,7 +39,6 @@ public class OyunEkrani extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.oyunekrani);
 
         interstitialAd = new InterstitialAd(context);

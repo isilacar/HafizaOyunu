@@ -43,8 +43,6 @@ public class AnaEkran extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        //full ekran yapıyor
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.anaekran);
 
         interstitialAd = new InterstitialAd(context);
@@ -52,19 +50,6 @@ public class AnaEkran extends AppCompatActivity {
         final AdRequest adRequest2 = new AdRequest.Builder().build();
         interstitialAd.loadAd(adRequest2);
 
-
-     /*   interstitialAd = new InterstitialAd(context);
-        interstitialAd.setAdUnitId(tamEkranAd);
-        final AdRequest adRequest2 = new AdRequest.Builder().build();
-        interstitialAd.loadAd(adRequest2);
-        interstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                interstitialAd.show();
-            }
-        });
-
-*/
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -98,8 +83,7 @@ public class AnaEkran extends AppCompatActivity {
                     toast.show();
                     //  Toast.makeText(context, "İsim alanı boş bırakılamaz..", Toast.LENGTH_SHORT).show();
                 } else {
-                   /* sharedPref.saveString(context, "kullaniciadi",
-                            etkullanici.getText().toString());*/
+
                     spe.putString("kullaniciadi", etkullanici.getText().toString());
                     spe.commit();
                     Intent i = new Intent(AnaEkran.this, OyunEkrani.class);

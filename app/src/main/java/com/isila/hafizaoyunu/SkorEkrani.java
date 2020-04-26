@@ -33,16 +33,10 @@ public class SkorEkrani extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.skorekrani);
 
         sp = PreferenceManager.getDefaultSharedPreferences(context);
 
-
-      /*  interstitialAd = new InterstitialAd(context);
-        interstitialAd.setAdUnitId(tamEkranAd);
-        final AdRequest adRequest2 = new AdRequest.Builder().build();
-        interstitialAd.loadAd(adRequest2);*/
 
         mAdView = findViewById(R.id.adViewskor);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -68,22 +62,6 @@ public class SkorEkrani extends AppCompatActivity {
                 butonclick3.start();
                 final Intent i = new Intent(SkorEkrani.this, OyunEkrani.class);
                 startActivity(i);
-           /*
-                if (interstitialAd.isLoaded()) {
-                    interstitialAd.show();
-                } else {
-                    startActivity(i);
-                }
-*/
-           /*     interstitialAd.setAdListener(new AdListener() {
-                    @Override
-                    public void onAdClosed() {
-                        super.onAdClosed();
-                        interstitialAd.loadAd(adRequest2);
-                        startActivity(i);
-                    }
-                });
-*/
 
             }
         });

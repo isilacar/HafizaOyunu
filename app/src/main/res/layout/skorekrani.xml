@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/hata2" ads:layout_constraintStart_toEndOf="@+id/hata"
             ads:layout_constraintTop_toTopOf="parent" android:layout_marginTop="240dp" android:visibility="visible"
-            android:textColor="#AA00FF" android:textSize="25sp" android:textStyle="italic"
+            android:textColor="#AA00FF" android:textSize="25sp"
             android:gravity="start"/>
 
 
