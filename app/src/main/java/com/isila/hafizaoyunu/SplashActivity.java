@@ -21,8 +21,6 @@ Context context=this;
                 "ca-app-pub-5037089565212879~8312246236");
 
         new SayfaGecisi().start();
-
-
     }
     private class SayfaGecisi extends Thread{
         @Override

@@ -35,8 +35,7 @@ public class SkorEkrani extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.skorekrani);
 
-        sp = PreferenceManager.getDefaultSharedPreferences(context);
-
+        sp = getSharedPreferences("SignUp", MODE_PRIVATE);
 
         mAdView = findViewById(R.id.adViewskor);
         AdRequest adRequest = new AdRequest.Builder().build();

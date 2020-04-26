@@ -77,14 +77,12 @@ public class OyunEkrani extends AppCompatActivity {
                 if (interstitialAd.isLoaded()) {
                     interstitialAd.show();
                 } else {
-                    surebitti.start();
                     startActivity(i3);
                 }
                 interstitialAd.setAdListener(new AdListener() {
                     @Override
                     public void onAdClosed() {
                         interstitialAd.loadAd(adRequest2);
-                        surebitti.start();
                         startActivity(i3);
                     }
                 });
@@ -125,11 +123,11 @@ public class OyunEkrani extends AppCompatActivity {
                                 timer.cancel();
                                 final Intent i2 = new Intent(OyunEkrani.this, SkorEkrani.class);
                                 i2.putExtra("hatalar", hata);
-                                // i2.putExtra("isim", s);
+
                                 if (interstitialAd.isLoaded()) {
                                     interstitialAd.show();
                                 } else {
-                                    skorekrani.start();
+
                                     startActivity(i2);
                                 }
                                 interstitialAd.setAdListener(new AdListener() {

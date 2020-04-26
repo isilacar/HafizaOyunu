@@ -54,7 +54,7 @@ public class AnaEkran extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        sp = PreferenceManager.getDefaultSharedPreferences(context);
+        sp = getSharedPreferences("SignUp", MODE_PRIVATE);
         spe = sp.edit();
 
 
@@ -86,6 +86,7 @@ public class AnaEkran extends AppCompatActivity {
 
                     spe.putString("kullaniciadi", etkullanici.getText().toString());
                     spe.commit();
+
                     Intent i = new Intent(AnaEkran.this, OyunEkrani.class);
                     startActivity(i);
                     toastGoster();

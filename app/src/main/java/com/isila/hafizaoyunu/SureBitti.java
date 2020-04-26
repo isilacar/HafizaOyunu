@@ -34,11 +34,11 @@ public class SureBitti extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sure_bitti);
 
-        sp = PreferenceManager.getDefaultSharedPreferences(context);
+        sp = getSharedPreferences("SignUp", MODE_PRIVATE);
 
 
         textViewsure = findViewById(R.id.surebitti);
-        //  SharedPref sharedPref = new SharedPref();
+
         String isim = sp.getString("kullaniciadi", null);
         textViewsure.setText(isim.toUpperCase() + " ");
         btntekraroyna = findViewById(R.id.tekraroyna);
