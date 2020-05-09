@@ -7,6 +7,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.view.animation.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -31,6 +32,7 @@ public class OyunEkrani extends AppCompatActivity {
     CountDownTimer timer;
     Context context = this;
 
+    private Animation animation;
 
     public OyunEkrani() {
 
@@ -44,6 +46,7 @@ public class OyunEkrani extends AppCompatActivity {
         interstitialAd = new InterstitialAd(context);
         interstitialAd.setAdUnitId(tamEkranAd);
 
+      //  animation= AnimationUtils.loadAnimation(context, R.anim.animasyon);
 
         tvkalansure = findViewById(R.id.kalansure);
         butonClick = MediaPlayer.create(this, R.raw.btnclick);
@@ -116,6 +119,8 @@ public class OyunEkrani extends AppCompatActivity {
                             skor++;
                             // titre.vibrate(250);
                             eslesdi.start();
+                          //  k.startAnimation(animation);
+                           // k2.startAnimation(animation);
 
                             sonKart = 0;
                             //oyun bitti

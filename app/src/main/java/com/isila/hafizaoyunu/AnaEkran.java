@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.animation.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -38,6 +39,7 @@ public class AnaEkran extends AppCompatActivity {
     private InterstitialAd interstitialAd;
     SharedPreferences sp;
     SharedPreferences.Editor spe;
+    private Animation asagidanyukari,yukaridanasagi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +56,11 @@ public class AnaEkran extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+        asagidanyukari= AnimationUtils.loadAnimation(context, R.anim.asagidanyukari);
+        yukaridanasagi= AnimationUtils.loadAnimation(context, R.anim.yukardanasagi);
+
         sp = getSharedPreferences("SignUp", MODE_PRIVATE);
         spe = sp.edit();
-
 
         butonClick2 = MediaPlayer.create(this, R.raw.butonses);
 
@@ -66,6 +70,9 @@ public class AnaEkran extends AppCompatActivity {
         btngiris = findViewById(R.id.btngiris);
         btnbilgi = findViewById(R.id.btnbilgi);
 
+        btnbilgi.setAnimation(asagidanyukari);
+        btngiris.setAnimation(asagidanyukari);
+        etkullanici.setAnimation(yukaridanasagi);
 
         btngiris.setOnClickListener(new View.OnClickListener() {
             @Override
