@@ -32,9 +32,11 @@
     <string name="kaybettinButon">AGAIN</string>
     <string name="kaybettinBaslik"> TIME OUT! YOU ARE NOT COMPLETE THE GAME!</string>
 
-    <string name="kazandinBaslik"> MISTAKES YOU DID.. CONGRATULATIONS..</string>
+    <string name="kazandinBaslik"> MISTAKES YOU DID..</string>
     <string name="kazandinButon">AGAIN</string>
+    <string name="tebrikler">CONGRATULATIONS</string>
 
+    <string name="enAzHata">MIN. NUMBER OF MISTAKES :</string>
 
 <!--    <string name="sayiYasak">abcçdefgğhıijklmnoöprsştuüvyzqwxABCÇDEFGĞHIİJKLMNOÖPRSŞTU
         ÜVYZQWX</string>-->

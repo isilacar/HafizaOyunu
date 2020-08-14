@@ -20,7 +20,7 @@ import com.google.android.gms.ads.AdView;
 
 public class SkorEkrani extends AppCompatActivity {
 
-    TextView hatat, hatat2;
+    TextView hatat, hatat2, enAzHata;
     Button button;
     private AdView mAdView;
     Context context = this;
@@ -45,13 +45,24 @@ public class SkorEkrani extends AppCompatActivity {
         hatat = findViewById(R.id.hata);
         hatat2 = findViewById(R.id.hata2);
         button = findViewById(R.id.button);
+        enAzHata = findViewById(R.id.hsayi);
+
 
         Intent i = getIntent();
 
         int hata = i.getIntExtra("hatalar", 0);
-        //  String isim=i.getStringExtra("isim");
-        //   SharedPref sharedPref = new SharedPref();
+
         final String isim = sp.getString("kullaniciadi", null);
+        int azHata=sp.getInt("azHataa",0);
+
+
+        if (hata < azHata || azHata==0) {
+            sp.edit().putInt("azHataa",hata).commit();
+            enAzHata.setText(String.valueOf(hata));
+        } else {
+            enAzHata.setText(String.valueOf(azHata));
+        }
+
 
         hatat.setText(isim.toUpperCase() + ", " + hata + " ");
 

@@ -16,7 +16,8 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-6855653886010075~8640001602"/>
+            android:value="ca-app-pub-5037089565212879~8312246236"/>
+
         <activity
             android:name=".Bilgi"
             android:screenOrientation="portrait" />

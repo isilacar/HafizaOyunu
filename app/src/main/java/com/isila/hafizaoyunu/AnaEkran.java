@@ -113,7 +113,7 @@ public class AnaEkran extends AppCompatActivity {
                 interstitialAd.setAdListener(new AdListener() {
                     @Override
                     public void onAdClosed() {
-                        super.onAdClosed();
+                     //   super.onAdClosed();
                         interstitialAd.loadAd(adRequest2);
                         startActivity(i);
                     }

@@ -34,8 +34,12 @@
     <string name="kaybettinButon">TEKRAR OYNA</string>
     <string name="kaybettinBaslik"> SÜREN BİTTİ. OYUNU TAMAMLAYAMADIN!</string>
 
-    <string name="kazandinBaslik"> HATA İLE OYUNU BİTİRDİN. TEBRİKLER..</string>
+    <string name="kazandinBaslik"> HATA İLE OYUNU BİTİRDİN.</string>
     <string name="kazandinButon">TEKRAR OYNA</string>
+    <string name="tebrikler">TEBRİKLER</string>
+
+
+    <string name="enAzHata">EN AZ HATA SAYISI :</string>
 
 <!--    <string name="sayiYasak">abcçdefgğhıijklmnoöprsştuüvyzqwxABCÇDEFGĞHIİJKLMNOÖPRSŞTU-->
 <!--        ÜVYZQWX</string>-->

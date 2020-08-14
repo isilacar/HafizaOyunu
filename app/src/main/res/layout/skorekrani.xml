@@ -11,10 +11,48 @@
 
 
     <TextView
+            android:id="@+id/hsayi"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="268dp"
+            android:text="AJAJ"
+            android:textColor="#FFFF2600"
+            android:textSize="25sp"
+
+            android:visibility="visible"
+            ads:layout_constraintTop_toTopOf="parent"
+            android:gravity="left" ads:layout_constraintStart_toEndOf="@+id/hata4"
+    />
+    <TextView
+            android:text="@string/enAzHata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/hata4"
+            ads:layout_constraintTop_toTopOf="parent" android:layout_marginTop="268dp" android:visibility="visible"
+            android:textColor="#FF2600" android:textSize="25sp"
+            android:gravity="start"
+            ads:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp"/>
+    <TextView
+            android:id="@+id/tebrikler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="108dp"
+            android:text="@string/tebrikler"
+            android:textColor="#AA00FF"
+            android:textSize="30sp"
+
+            android:visibility="visible"
+            ads:layout_constraintTop_toTopOf="parent" ads:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+            ads:layout_constraintHorizontal_bias="0.0" ads:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center" android:textStyle="bold"/>
+
+    <TextView
             android:id="@+id/hata"
             android:layout_width="127dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="192dp"
             android:text="AJAJ"
             android:textColor="#AA00FF"
             android:textSize="25sp"
@@ -22,12 +60,11 @@
             android:visibility="visible"
             ads:layout_constraintTop_toTopOf="parent" ads:layout_constraintStart_toStartOf="parent"
             android:gravity="right"/>
-
     <Button
             android:id="@+id/button"
             android:layout_width="192dp"
             android:layout_height="58dp"
-            android:layout_marginTop="148dp"
+            android:layout_marginTop="192dp"
             android:background="@drawable/tekraroyna"
             android:text="@string/kazandinButon"
             android:textColor="#FFFF00"
@@ -36,23 +73,22 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/hata"/>
-
     <com.google.android.gms.ads.AdView
-        android:id="@+id/adViewskor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        ads:adSize="SMART_BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="112dp"></com.google.android.gms.ads.AdView>
+            android:id="@+id/adViewskor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="@string/banner_ad_unit_id"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="112dp"></com.google.android.gms.ads.AdView>
     <TextView
             android:text="@string/kazandinBaslik"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/hata2" ads:layout_constraintStart_toEndOf="@+id/hata"
-            ads:layout_constraintTop_toTopOf="parent" android:layout_marginTop="240dp" android:visibility="visible"
+            ads:layout_constraintTop_toTopOf="parent" android:layout_marginTop="192dp" android:visibility="visible"
             android:textColor="#AA00FF" android:textSize="25sp"
             android:gravity="start"/>
 

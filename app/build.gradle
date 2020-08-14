@@ -8,7 +8,7 @@ android {
         hafizaOyunu {
             keyAlias 'hafizaoyunu'
             keyPassword '13101986'
-            storeFile file('C:/Users/isila/Desktop/KOD/hafizaOyunuAPK/hafizaoyunu.jks')
+            storeFile file('D:/KOD/hafizaOyunuAPK/hafizaoyunu.jks')
             storePassword '13101986'
         }
     }

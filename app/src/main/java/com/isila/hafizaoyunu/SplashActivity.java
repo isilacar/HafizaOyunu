@@ -20,13 +20,15 @@ Context context=this;
         MobileAds.initialize(context,
                 "ca-app-pub-5037089565212879~8312246236");
 
+
+
         new SayfaGecisi().start();
     }
     private class SayfaGecisi extends Thread{
         @Override
         public void run() {
             try {
-                Thread.sleep(1500);
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
